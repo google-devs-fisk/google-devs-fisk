@@ -2,21 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Sample Global styles */
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Global styles */
+:root {
+  box-sizing: border-box;
+  --primary-background: #100425;
+  --primary-overlay: rgba(44, 39, 55, 0.2);
+  --secondary-overlay: linear-gradient(
+    355.01deg,
+    #100425 46.2%,
+    rgba(16, 4, 37, 0.26) 95.79%
+  );
+  --primary-card-color: None;
+  --secondary-card-color: linear-gradient(90deg, #07060d 4%, #7a87a6 90%);
+  --primary-text-color: #ffffff;
+  --primary-heading-color: linear-gradient(90deg, #46c6fd 0%, #dc00d3 100%);
+  --secondary-heading-color: #ececec;
+  --primary-border-color: #ae93d4;
+  --secondary-border-color-one: #b1a2b1;
+  --secondary-border-color-two: rgba(91, 95, 119, 0.6);
+  --primary-box-shadow: 0px 4px 100px 30px rgba(232, 225, 225, 0.25);
+  --secondary-box-shadow: 0px 0px 100px 40px rgba(232, 225, 225, 0.25);
+  --secondary-button-color-one: linear-gradient(
+    277.1deg,
+    #5a534d 6.85%,
+    #8d7563 91.66%
+  );
+  --secondary-button-color-two: linear-gradient(
+    277.1deg,
+    #6bccaf 6.85%,
+    #62bc68 91.66%
+  );
+  --base-font-size: 16px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Ensure all elements and pseudo-elements inherit box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
+html {
+  font-size: var(--base-font-size);
+}
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-} */
+  background: var(--primary-background);
+  color: var(--primary-text-color);
+}
