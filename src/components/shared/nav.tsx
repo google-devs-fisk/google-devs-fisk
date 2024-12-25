@@ -24,12 +24,12 @@ export default function Nav() {
         {/* Left Section */}
         <div className="items-center gap-8 hidden sm:flex">
           <NavbarItem>
-            <Link href={paths.projects()}>
+            <Link href={paths.projects()} target="_blank" className="hover:underline">
               Projects
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link href={paths.codelabs()}>
+            <Link href={paths.codelabs()} target="_blank" className="hover:underline">
               CodeLabs
             </Link>
           </NavbarItem>
@@ -41,12 +41,12 @@ export default function Nav() {
         {/* Right Section */}
         <div className="items-center gap-8 hidden sm:flex">
           <NavbarItem>
-            <Link href={paths.workCulture()}>
+            <Link href={paths.workCulture()} target="_blank" className="hover:underline">
               Work Culture
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link href={paths.contact()}>
+            <Link href={paths.contact()} target="_blank" className="hover:underline">
               Contact
             </Link>
           </NavbarItem>
@@ -80,22 +80,22 @@ export default function Nav() {
       {isMenuOpen && (
         <ul className="flex flex-col gap-4 p-4 sm:hidden list-none">
           <li className="text-center">
-            <Link href={paths.projects()}>
+            <Link href={paths.projects()} target="_blank" className="hover:underline">
               Projects
             </Link>
           </li>
           <li className="text-center">
-            <Link href={paths.codelabs()}>
+            <Link href={paths.codelabs()} target="_blank" className="hover:underline">
               CodeLabs
             </Link>
           </li>
           <li className="text-center">
-            <Link className="whitespace-nowrap" href={paths.workCulture()}>
+            <Link className="whitespace-nowrap hover:underline" href={paths.workCulture()} target="_blank">
               Work Culture
             </Link>
           </li>
           <li className="text-center">
-            <Link href={paths.contact()}>
+            <Link href={paths.contact()} target="_blank" className="hover:underline">
               Contact
             </Link>
           </li>
