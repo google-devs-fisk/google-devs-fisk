@@ -49,3 +49,13 @@ body {
   background: var(--primary-background);
   color: var(--primary-text-color);
 }
+
+/* Hides scrollbar but allows scrolling */
+.scrollable-content {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollable-content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
