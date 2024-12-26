@@ -6,3 +6,7 @@ export { default as ImageComponent } from "./shared/imageComponent";
 export { default as LeftHalfRectangle } from "./shared/leftHalfRectangle";
 export { default as TextContent } from "./shared/textContent";
 export { default as TextSection } from "./shared/textSection";
+export { default as VideoComponent } from "./shared/videoComponent";
+export { default as Heading } from "./shared/heading";
+export { default as HeadingWithSpan } from "./shared/headingWithSpan";
+export { default as KeySpan } from "./shared/keySpan";

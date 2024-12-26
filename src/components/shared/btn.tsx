@@ -15,7 +15,7 @@ export default function Btn({ text, link, variant}: BtnProps) {
 
   return (
     <Button
-      className={`px-6 py-3 text-lg rounded-lg shadow-lg hover:opacity-90 focus:outline-none ${variant ? variant : "primary-btn"}`}
+      className={`px-6 py-3 text-xs sm:text-sm lg:text-lg rounded-xl shadow-lg hover:opacity-90 focus:outline-none ${variant ? variant : "primary-btn"}`}
       onPress={handlePress}
     >
       {text}
