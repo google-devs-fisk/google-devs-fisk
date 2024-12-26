@@ -12,13 +12,13 @@ const ImageComponent: React.FC<ImageComponentProps> = ({
   className = '', // Optional additional classes
 }) => {
   return (
-    <div className={`flex items-center justify-center rounded-lg ${className}`}>
+    <div className={`flex items-center justify-center rounded-3xl ${className}`}>
       <Image
         src={src}
         alt={alt}
         width={width}
         height={height}
-        className="w-full h-auto rounded-lg"
+        className="w-full h-auto rounded-3xl"
       />
     </div>
   );

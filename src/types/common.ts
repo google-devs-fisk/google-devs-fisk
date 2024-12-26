@@ -41,6 +41,11 @@ export interface Metric {
 }
 
 /** These are component's element state props */
+
+export interface HeadingProps {
+    heading: string;
+}
+
 export interface BtnProps {
     text: string;
     link: string;
@@ -68,4 +73,14 @@ export interface TextSectionProps {
     imgURL?: string;
     btnLink?: BtnProps; 
     flipLayout?: boolean;
+}
+
+export interface KeySpanProps {
+    genre: string;
+    variant?: number;
+}
+export interface VideoComponentProps {
+    videoContent: VideoContent;
+    buttonInfo: BtnProps;
+    spanVariant?: number;
 }
