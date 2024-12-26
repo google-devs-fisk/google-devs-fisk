@@ -6,6 +6,7 @@ export interface TextContent {
 
 export interface VideoContent {
     title: string;
+    imgUrl: string;
     genres: string[];
 }
 
