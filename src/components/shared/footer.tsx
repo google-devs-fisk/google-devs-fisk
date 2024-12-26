@@ -9,19 +9,19 @@ export default function Footer() {
     <footer className="py-6">
       {/* Navigation Links */}
       <div className="flex flex-wrap justify-evenly gap-4 mb-4">
-        <Link href={paths.home()} target="_blank" className="hover:underline">
+        <Link href={paths.home()} className="hover:underline">
           Home
         </Link>
-        <Link href={paths.projects()} target="_blank" className="hover:underline">
+        <Link href={paths.projects()} className="hover:underline">
           Projects
         </Link>
-        <Link href={paths.codelabs()} target="_blank" className="hover:underline">
+        <Link href={paths.codelabs()} className="hover:underline">
           CodeLabs
         </Link>
-        <Link href={paths.workCulture()} target="_blank" className="hover:underline">
+        <Link href={paths.workCulture()} className="hover:underline">
           Work Culture
         </Link>
-        <Link href={paths.contact()} target="_blank" className="hover:underline">
+        <Link href={paths.contact()} className="hover:underline">
           Contact
         </Link>
       </div>

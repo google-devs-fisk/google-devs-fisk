@@ -2,13 +2,9 @@
 
 import { Button } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
+import { BtnProps } from "@/types/common";
 
-interface BtnProps {
-  text: string;
-  link: string;
-}
-
-export default function Btn({ text, link }: BtnProps) {
+export default function Btn({ text, link, variant}: BtnProps) {
   const router = useRouter();
 
   const handlePress = () => {
@@ -19,7 +15,7 @@ export default function Btn({ text, link }: BtnProps) {
 
   return (
     <Button
-      className="button text-lg focus:outline-none"
+      className={`px-6 py-3 text-lg rounded-lg shadow-lg hover:opacity-90 focus:outline-none ${variant ? variant : "primary-btn"}`}
       onPress={handlePress}
     >
       {text}

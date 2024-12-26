@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-      <div className={`container mx-auto px-8 sm:px-4 max-w-screen-lg ${figtree.className}`}>
+      <div className={`container mx-auto px-8 sm:px-4 max-w-screen-2xl ${figtree.className}`}>
           <Providers>
             {children}
           </Providers>

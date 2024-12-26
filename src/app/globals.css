@@ -24,13 +24,13 @@
   --secondary-box-shadow: 0px 0px 100px 40px rgba(232, 225, 225, 0.25);
   --secondary-button-color-one: linear-gradient(
     277.1deg,
-    #5a534d 6.85%,
-    #8d7563 91.66%
+    #4a443f 6.85%,
+    #7d6a5a 91.66%
   );
   --secondary-button-color-two: linear-gradient(
     277.1deg,
-    #6bccaf 6.85%,
-    #62bc68 91.66%
+    #5bc9b0 6.85%,
+    #52bc57 91.66%
   );
   --base-font-size: 16px;
 }
@@ -51,21 +51,26 @@ body {
 }
 
 /* General Button Styling */
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 20px;
+.primary-btn {
   background: var(--primary-heading-color);
-  border-radius: 40px;
-  border: none;
-  cursor: pointer;
-  text-align: center;
-  font-weight: 600; /* Semibold */
 }
 
-.button:hover {
-  filter: brightness(1.1);
+.secondary-btn-one {
+  background: var(--secondary-button-color-one);
+}
+
+.secondary-btn-two {
+  background: var(--secondary-button-color-two);
+}
+
+/* General Heading styles */
+.primary-heading {
+  @apply text-transparent bg-clip-text;
+  background-image: var(--primary-heading-color);
+}
+
+.secondary-color {
+  color: var(--secondary-heading-color);
 }
 
 /* Hides scrollbar but allows scrolling */

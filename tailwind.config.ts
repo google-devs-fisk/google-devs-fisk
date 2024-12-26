@@ -12,6 +12,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      screens: {
+        'custom-740': '740px', // Screen for mobile-responsive nav
+      },
     },
   },
   plugins: [],
