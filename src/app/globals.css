@@ -63,6 +63,16 @@ body {
   background: var(--secondary-button-color-two);
 }
 
+/* General Heading styles */
+.primary-heading {
+  @apply text-transparent bg-clip-text;
+  background-image: var(--primary-heading-color);
+}
+
+.secondary-color {
+  color: var(--secondary-heading-color);
+}
+
 /* Hides scrollbar but allows scrolling */
 .scrollable-content {
   overflow-y: scroll;

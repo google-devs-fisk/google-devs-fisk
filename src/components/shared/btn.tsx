@@ -2,12 +2,7 @@
 
 import { Button } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
-
-interface BtnProps {
-  text: string;
-  link: string;
-  variant?: string;
-}
+import { BtnProps } from "@/types/common";
 
 export default function Btn({ text, link, variant}: BtnProps) {
   const router = useRouter();
