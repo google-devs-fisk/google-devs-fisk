@@ -2,6 +2,7 @@ import { Section, VideoContent} from './common';
 
 export interface Project {
     id: string;
+    projectHeroImg: string;
     projectTitle: string;
     author?: string;
     readTimeInMins: number;

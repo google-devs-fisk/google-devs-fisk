@@ -10,9 +10,9 @@ export default function Home() {
   <div className="h-screen flex flex-col">
     <Nav />
     <div className="flex-1 overflow-y-auto scrollable-content mt-8">
-      <div><TextSection btnLink={buttonProps} paragraph={para} heading="Empowering Next-Gen Coders to collaborate on real world projects" flipLayout={true} imgURL="/images/about-vr.png" /></div>
+      <div><TextSection btnLink={buttonProps} paragraph={para} heading="Empowering Next-Gen Coders to collaborate on real world projects" flipLayout={true} imgURL="/images/placeholders/home-placeholder8.png" /></div>
       <div><TextSection paragraph={para} heading="This can be used as a paragraph with no image" flipLayout={true} /></div>
-      <div><TextSection heading="This can be used as an image with no paragraph" flipLayout={false} imgURL="/images/placeholders/teams-placeholder.png"/></div>
+      <div><TextSection heading="This can be used as an image with no paragraph" flipLayout={false} imgURL="/images/placeholders/home-placeholder9.png"/></div>
       <div><TextSection heading="This can be used as a heading" /></div>
       <Footer />
     </div>
