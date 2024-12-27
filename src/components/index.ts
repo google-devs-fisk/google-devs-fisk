@@ -10,3 +10,4 @@ export { default as VideoComponent } from "./shared/videoComponent";
 export { default as Heading } from "./shared/heading";
 export { default as HeadingWithSpan } from "./shared/headingWithSpan";
 export { default as KeySpan } from "./shared/keySpan";
+export { default as CodelabsShowComponent } from "./codelabs/codelabsShowComponent"

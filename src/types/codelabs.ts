@@ -5,6 +5,7 @@ export interface KeyLearning {
 
 export interface Codelab {
     id: string;
+    screenshotUrl: string;
     gcsUrl: string;
     title: string;
     keyLearnings: KeyLearning[];
