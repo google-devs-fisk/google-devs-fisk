@@ -15,7 +15,7 @@ const VideoComponent: React.FC<VideoComponentProps> = ({
   const { title, imgUrl, genres } = videoContent;
 
   return (
-    <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg">
+    <div className="relative w-full min-h-[350px] max-h-screen aspect-[16/9] overflow-hidden rounded-lg">
       {/* Background Image */}
       <Image
         src={imgUrl}
@@ -25,7 +25,7 @@ const VideoComponent: React.FC<VideoComponentProps> = ({
         className="w-full h-full"
       />
       {/* Content */}
-      <div className="absolute top-[15%] left-[15%] right-[15%] bottom-[15%] flex flex-col justify-end">
+      <div className="absolute top-[13%] left-[13%] right-[13%] bottom-[13%] flex flex-col justify-end">
         {/* Video Title */}
         <div className="mb-4">
             <Heading heading={title} />
@@ -37,7 +37,7 @@ const VideoComponent: React.FC<VideoComponentProps> = ({
         </div>
 
         {/* Genres */}
-        <div className="flex-wrap gap-2 hidden custom-420:flex">
+        <div className="flex-wrap gap-2 flex">
           {genres.map((genre, index) => (
             <KeySpan key={index} genre={genre} variant={spanVariant} />
           ))}

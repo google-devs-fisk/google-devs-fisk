@@ -14,7 +14,6 @@ export default {
       },
       screens: {
         'custom-740': '740px', // Screen for mobile-responsive nav
-        'custom-420': '420px', // Screen for mobile-responsive keySpan
       },
     },
   },
