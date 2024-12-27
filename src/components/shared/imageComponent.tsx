@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React from 'react';
 import Image from 'next/image';
@@ -6,19 +6,28 @@ import { ImageComponentProps } from '@/types/common';
 
 const ImageComponent: React.FC<ImageComponentProps> = ({
   src,
-  alt = 'Image', // Default alt text
-  width = 500, // Default width
-  height = 500, // Default height
+  alt = 'Image',
+  minHeight = 500, // Default minimum height
+  maxWidth, // Optional maximum width
+  rounded = false, // Default to no rounded borders
+  opacity = 1, // Default opacity is fully visible
   className = '', // Optional additional classes
 }) => {
   return (
-    <div className={`flex items-center justify-center rounded-3xl ${className}`}>
+    <div
+      className={`relative overflow-hidden ${rounded ? 'rounded-3xl' : ''} ${className}`}
+      style={{
+        minHeight: `${minHeight}px`,
+        maxWidth: maxWidth ? `${maxWidth}px` : '100%',
+      }}
+    >
       <Image
         src={src}
         alt={alt}
-        width={width}
-        height={height}
-        className="w-full h-auto rounded-3xl"
+        layout="fill"
+        objectFit="cover"
+        className="w-full h-full"
+        style={{ opacity }}
       />
     </div>
   );
