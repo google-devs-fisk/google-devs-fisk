@@ -5,13 +5,11 @@ import paths from '@/paths';
 
 interface ImageClickMeOverlayProps {
     codelabId: string;
-    link: string;
 }
-const ImageClickMeOverlay = ({ codelabId, link }: ImageClickMeOverlayProps) => {
+const ImageClickMeOverlay = ({ codelabId }: ImageClickMeOverlayProps) => {
   const router = useRouter();
 
   const handleClick = () => {
-    console.log("This is the gcs deployed iframe link: ", link);
     router.push(paths.codelabInfo(codelabId));
   };
 
