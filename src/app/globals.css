@@ -6,8 +6,8 @@
 :root {
   box-sizing: border-box;
   --primary-background: #100425;
-  --secondary-background-one: rgba(255,255,255,0.45);
-  --secondary-background-two: rgba(255,255,255,0.45);
+  --secondary-background-one: rgba(255, 255, 255, 0.45);
+  --secondary-background-two: rgba(255, 255, 255, 0.45);
   --secondary-background-three: rgba(16, 4, 37, 0.45);
   --primary-overlay: rgba(44, 39, 55, 0.2);
   --secondary-overlay: linear-gradient(
@@ -96,4 +96,13 @@ body {
 
 .scrollable-content::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Edge */
+}
+
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
