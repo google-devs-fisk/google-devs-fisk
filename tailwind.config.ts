@@ -11,9 +11,11 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        borderPrimary: "var(--primary-border-color)",
       },
       screens: {
-        'custom-740': '740px', // Screen for mobile-responsive nav
+        "custom-740": "740px", // Screen for mobile-responsive nav
+        "custom-420": "420px", // Screen for mobile-responsive keySpan
       },
     },
   },

@@ -7,7 +7,7 @@ import { ImageComponentProps } from '@/types/common';
 const ImageComponent: React.FC<ImageComponentProps> = ({
   src,
   alt = 'Image',
-  minHeight = 500, // Default minimum height
+  minHeight = 400, // Default minimum height
   maxWidth, // Optional maximum width
   rounded = false, // Default to no rounded borders
   opacity = 1, // Default opacity is fully visible
