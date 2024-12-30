@@ -68,7 +68,7 @@ export const ProjectContent = ({ project }: ProjectContentProps) => {
       <p className="project-description text-xl md:text-2xl pb-8 leading-relaxed">
         {description}
       </p>
-      <Btn text="See Details" link="/projects" />
+      <Btn text="See Details" link={`/projects/${project.id}`} />
     </motion.div>
   );
 };

@@ -41,51 +41,52 @@ export default function Projects() {
   } = useProjectNavigation(projects);
 
   return (
-    <div className="projectspage overflow-hidden">
-      {/* BACKGROUND OVERLAY OF THE CAROUSEL */}
-      <div className="relative ">
-        <AnimatePresence mode="sync">
-          <ProjectBackground key={activeProject.id} project={activeProject} />
-        </AnimatePresence>
-
-        {/* PROJECT CAROUSEL CONTENTS */}
-        <div className="relative z-10">
-          <Nav />
-          <div className="carousel-container h-[80vh] flex flex-col md:flex-row items-center py-16 px-16 overflow-hidden">
+    <div className="h-screen flex flex-col">
+      <Nav />
+      <div className="flex-1 overflow-y-auto scrollable-content">
+        <div className="relative">
             <AnimatePresence mode="sync">
-              <ProjectContent key={activeProject.id} project={activeProject} />
+              <ProjectBackground key={activeProject.id} project={activeProject} />
             </AnimatePresence>
 
-            {/* PROJECT CAROUSEL VIEW */}
-            <div className="hidden sm:block right w-full md:w-[50%] md:px-8 py-8">
-              <BackgroundGrid />
-              <AnimatePresence mode="popLayout">
-                <motion.div
-                  key={activeProject.id}
-                  className="flex gap-6 min-w-min"
-                  initial={carouselTransition.initial(direction)}
-                  animate={carouselTransition.animate}
-                  transition={carouselTransition.transition}
-                >
-                  {getRemainingProjects().map((project) => (
-                    <ProjectCard
-                      key={project.id}
-                      project={project}
-                      onClick={() => setActiveProject(project)}
-                    />
-                  ))}
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
+            {/* PROJECT CAROUSEL CONTENTS */}
+            <div className="relative z-10">
+              <div className="carousel-container h-[90vh] flex flex-col md:flex-row items-center py-16 px-16 overflow-hidden">
+                <AnimatePresence mode="sync">
+                  <ProjectContent key={activeProject.id} project={activeProject} />
+                </AnimatePresence>
 
-          <div className="navigation-btns w-full flex flex-row items-center justify-center py-14 gap-8">
-            <NavigationButton direction="left" onClick={handleLeftClick} />
-            <NavigationButton direction="right" onClick={handleRightClick} />
-          </div>
+                {/* PROJECT CAROUSEL VIEW */}
+                <div className="hidden sm:block right w-full md:w-[50%] md:px-8 py-8">
+                  <BackgroundGrid />
+                  <AnimatePresence mode="popLayout">
+                    <motion.div
+                      key={activeProject.id}
+                      className="flex gap-6 min-w-min"
+                      initial={carouselTransition.initial(direction)}
+                      animate={carouselTransition.animate}
+                      transition={carouselTransition.transition}
+                    >
+                      {getRemainingProjects().map((project) => (
+                        <ProjectCard
+                          key={project.id}
+                          project={project}
+                          onClick={() => setActiveProject(project)}
+                        />
+                      ))}
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+              </div>
+
+              <div className="navigation-btns absolute bottom-[5%] left-1/2 transform -translate-x-1/2 flex flex-row items-center gap-8">
+                <NavigationButton direction="left" onClick={handleLeftClick} />
+                <NavigationButton direction="right" onClick={handleRightClick} />
+              </div>
+            </div>
+            <Footer hideUpperFooter={true} />
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

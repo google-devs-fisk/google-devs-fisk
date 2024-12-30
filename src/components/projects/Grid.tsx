@@ -8,7 +8,7 @@ const BackgroundGrid = () => {
       viewBox="0 0 658 667"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute top-4 sm:top-8 md:top-36 lg:top-14 right-4 sm:right-2 md:right-4 custom-900:right-8 lg:right-32 -z-10 h-auto w-full sm:w-4/5 md:w-3/4 lg:w-2/3 max-w-screen-lg"
+      className="absolute top-4 sm:top-8 md:top-36 lg:top-14 right-4 sm:right-2 md:right-4 custom-900:right-8 lg:right-32 -z-10 h-[85%] w-full sm:w-4/5 md:w-3/4 lg:w-2/3 max-w-screen-lg"
       variants={staggeredFadeIn}
       initial="hidden"
       animate="visible"
