@@ -12,3 +12,8 @@ export { default as HeadingWithSpan } from "./shared/headingWithSpan";
 export { default as KeySpan } from "./shared/keySpan";
 export { default as CodelabsShowComponent } from "./codelabs/codelabsShowComponent";
 export { default as CodelabInfoCardComponent } from "./codelabs/codelabInfoCardComponent";
+export { default as Landing } from "./home/Landing";
+export { default as Projects } from "./home/Projects";
+export { default as Focus } from "./home/Focus";
+export { default as Values } from "./home/Values";
+export {default as Newsletter } from "./home/Newsletter";
