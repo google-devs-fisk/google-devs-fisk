@@ -3,34 +3,37 @@
 import React from "react";
 import { Link, Divider } from "@nextui-org/react";
 import paths from "@/paths";
+import { FooterProps } from "@/types/common";
 
-export default function Footer() {
+export default function Footer({ hideUpperFooter = false }: FooterProps) {
   return (
-    <footer className="py-32">
-      {/* Navigation Links */}
-      <div className="flex flex-wrap justify-between gap-4 mb-4 px-4 custom-960:px-72">
-        <Link href={paths.home()} className="hover:underline">
-          Home
-        </Link>
-        <Link href={paths.projects()} className="hover:underline">
-          Projects
-        </Link>
-        <Link href={paths.codelabs()} className="hover:underline">
-          CodeLabs
-        </Link>
-        <Link href={paths.workCulture()} className="hover:underline">
-          Work Culture
-        </Link>
-        <Link href={paths.contact()} className="hover:underline">
-          Contact
-        </Link>
-      </div>
-
-      {/* Divider */}
-      <Divider className="mx-auto mb-4" />
+    <footer className="pb-5">
+      {/* Upper Footer */}
+      {!hideUpperFooter && <div>
+        {/* Navigation Links */}
+        <div className="flex flex-wrap justify-evenly gap-4 mb-4 px-4">
+          <Link href={paths.home()} className="hover:underline">
+            Home
+          </Link>
+          <Link href={paths.projects()} className="hover:underline">
+            Projects
+          </Link>
+          <Link href={paths.codelabs()} className="hover:underline">
+            CodeLabs
+          </Link>
+          <Link href={paths.workCulture()} className="hover:underline">
+            Work Culture
+          </Link>
+          <Link href={paths.contact()} className="hover:underline">
+            Contact
+          </Link>
+        </div>
+        {/* Divider */}
+        <Divider className="mx-auto mb-4" />
+      </div>}
 
       {/* Sub Footer */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 px-4 custom-960:px-72 font-light text-sm text-gray-400">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 px-4 font-light text-sm text-gray-400">
         <div className="flex justify-center gap-6">
           <Link href="/#" className="hover:underline">
             Terms
