@@ -1,10 +1,12 @@
+"use client"
+
 /**
  * Project Components Module
  * A collection of animated components for the projects showcase section
  * using Framer Motion for animations and TypeScript for type safety.
  */
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Btn from "@/components/shared/btn";
 import {
   scaleUpFadeIn,
@@ -57,7 +59,7 @@ export const ProjectContent = ({ project }: ProjectContentProps) => {
   return (
     <motion.div
       key={project.id}
-      className="left w-full md:w-[50%] min-h-[450px] md:h-auto text-white sm:pr-8"
+      className="left w-full md:w-[50%] min-h-[450px] md:h-auto text-white sm:pr-8 backdrop-blur-md xl:backdrop-blur-none p-4 rounded-2xl"
       initial={slideUpFadeIn.initial}
       animate={slideUpFadeIn.animate}
       transition={slideUpFadeIn.transition}
@@ -117,3 +119,15 @@ export const NavigationButton = ({
     {direction === "left" ? "<" : ">"}
   </motion.button>
 );
+
+/**
+ * Default export for the module
+ */
+const ProjectComponents = {
+  ProjectBackground,
+  ProjectContent,
+  ProjectCard,
+  NavigationButton,
+};
+
+export default ProjectComponents;

@@ -1,3 +1,5 @@
+"use client"
+
 /**
  * Project Components Module
  * A collection of animated components for the projects showcase section
@@ -5,7 +7,7 @@
  */
 import projects from "@/actions/data";
 import { motion, AnimatePresence } from "framer-motion";
-import BackgroundGrid from "@/components/projects/Grid";
+import BackgroundGrid from "@/components/shared/backgroundGrid";
 import { useProjectNavigation } from "@/hooks/useProjectNavigation";
 import { carouselTransition } from "@/animations/projectsPageAnimations";
 import { ProjectCard } from "@/components/projects/ProjectComponents";

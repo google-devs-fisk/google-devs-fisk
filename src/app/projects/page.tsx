@@ -3,18 +3,11 @@
 import projects from "@/actions/data";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { Nav, Footer } from "@/components";
-import BackgroundGrid from "@/components/projects/Grid";
+import { Nav, Footer, ProjectComponents, BackgroundGrid } from "@/components";
 import { useProjectNavigation } from "@/hooks/useProjectNavigation";
 import { carouselTransition } from "@/animations/projectsPageAnimations";
-import CarouselWithGrid from "@/components/projects/Carousel";
-import {
-  ProjectBackground,
-  ProjectContent,
-  ProjectCard,
-  NavigationButton,
-} from "@/components/projects/ProjectComponents";
 
+const { ProjectBackground, ProjectContent, ProjectCard, NavigationButton } = ProjectComponents;
 /**
  * Projects Page Component
  *
