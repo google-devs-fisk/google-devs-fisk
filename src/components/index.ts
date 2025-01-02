@@ -15,6 +15,7 @@ export { default as BgGrid } from "./shared/bgGrid";
 export { default as DepthBlur } from "./shared/depthBlur";
 export { default as NewsLetter } from "./shared/newsLetter";
 export { default as BackgroundGrid } from "./shared/backgroundGrid";
+export { default as ContactNewsletter } from "./shared/contactNewsletter";
 
 export { default as CodelabsShowComponent } from "./codelabs/codelabsShowComponent";
 export { default as CodelabInfoCardComponent } from "./codelabs/codelabInfoCardComponent";
@@ -26,3 +27,6 @@ export {default as Newsletter } from "./home/Newsletter";
 
 export { default as ProjectComponents } from "./projects/ProjectComponents";
 export { default as CarouselWithGrid } from "./projects/CarouselWithGrid";
+
+export { default as ContactCard } from "./contact/contactCard";
+export { default as InputField } from "./contact/inputField";

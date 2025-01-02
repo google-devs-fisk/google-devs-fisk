@@ -1,19 +1,14 @@
 "use client";
-import { NewsLetter } from "@/components";
-import InputField from "./reusables/inputField";
-import { FieldValues, useForm } from "react-hook-form";
-import useSubmitForm from "./reusables/submitForm";
 
-const Newsletter = () => {
-  const { register, handleSubmit, reset } = useForm();
-  const submitForm = useSubmitForm({
-    url: "https://jsonplaceholder.typicode.com/posts",
+import { NewsLetter, InputField } from "@/components";
+import { useActionState } from "react";
+import * as actions from "@/actions"; // Import server actions
+
+const ContactNewsletter = () => {
+  // Bind to server action using useActionState
+  const [formState, action] = useActionState(actions.subscriberFormSubmit, {
+    errors: {},
   });
-
-  const onSubmit = (data: FieldValues) => {
-    submitForm(data);
-    reset();
-  };
 
   return (
     <div className="relative md:py-auto">
@@ -33,29 +28,42 @@ const Newsletter = () => {
         <div className="flex items-center justify-center">
           <div className="relative flex items-center w-96 rounded-full bg-gradient-to-r from-[#dc00d3] via-pink-500 to-purple-500 p-[2px] overflow-hidden">
             <form
-              className="flex w-full items-center bg-[#100425] rounded-full"
-              onSubmit={handleSubmit(onSubmit)}
+              className="flex w-full h-full items-center bg-[#100425] rounded-full"
+              action={action} // Bind the form to the server action
             >
               <InputField
                 id="newsletter-email"
+                name="email"
                 type="email"
-                className="flex-1 bg-transparent text-white placeholder-white px-4 py-2 outline-none text-sm"
+                className="flex-1 h-full bg-transparent text-white placeholder-white px-4 py-2 outline-none text-sm"
                 placeholder="example@gmail.com"
-                register={register}
+                hasBorder={false}
                 required
+                isInvalid={!!formState.errors.email}
+                errorMessage={formState.errors.email?.join(", ")}
               />
               <button
                 type="submit"
-                className="bg-gradient-to-r via-[#dc00d3] from-pink-500 to-purple-500 text-white text-sm font-xl px-6 py-2"
+                className="h-full bg-gradient-to-r via-[#dc00d3] from-pink-500 to-purple-500 text-white text-sm font-xl px-6 py-2"
               >
                 Subscribe
               </button>
             </form>
           </div>
         </div>
+        {/* Form Errors */}
+        {formState.errors._form && (
+          <p className="mt-4 text-red-500 text-sm">
+            {formState.errors._form.join(", ")}
+          </p>
+        )}
+        {formState.message && (
+          <p className="mt-4 text-green-500 text-sm">{formState.message}</p>
+        )}
       </div>
     </div>
   );
 };
 
-export default Newsletter;
+export default ContactNewsletter;
+
