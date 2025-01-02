@@ -7,6 +7,7 @@ export interface TextContent {
 export interface VideoContent {
     title: string;
     imgUrl: string;
+    videoUrl: string;
     genres: string[];
 }
 
@@ -40,10 +41,21 @@ export interface Metric {
     goals: Goal[];
 }
 
+export interface ProjectSummary {
+    id: string;
+    projectHeroImg: string;
+    projectTitle: string;
+    overview: Section;
+}
+
 /** These are component's element state props */
 
 export interface HeadingProps {
     heading: string;
+}
+
+export interface FooterProps {
+    hideUpperFooter?: boolean;
 }
 
 export interface BtnProps {

@@ -3,7 +3,7 @@
  * A collection of animated components for the projects showcase section
  * using Framer Motion for animations and TypeScript for type safety.
  */
-import projects from "../../server-actions/data";
+import projects from "@/actions/data";
 import { motion, AnimatePresence } from "framer-motion";
 import BackgroundGrid from "@/components/projects/Grid";
 import { useProjectNavigation } from "@/hooks/useProjectNavigation";

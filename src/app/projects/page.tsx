@@ -1,6 +1,6 @@
 "use client";
 
-import projects from "../../server-actions/data";
+import projects from "@/actions/data";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { Nav, Footer } from "@/components";

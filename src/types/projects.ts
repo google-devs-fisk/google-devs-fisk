@@ -1,5 +1,11 @@
 import { Section, VideoContent } from "./common";
 
+/** These are component's data state props */
+export interface RelevantLink {
+  docsLink: string;
+  docsTitle: string;
+}
+
 export interface Project {
   id: string;
   projectHeroImg: string;
@@ -10,9 +16,14 @@ export interface Project {
   problemStatement: string;
   features: Section;
   demo: VideoContent;
-  relevantLinks: string[];
+  relevantLinks: RelevantLink[];
 }
 
+export interface ProjectsPageResponse {
+  projects: Project[];
+}
+
+/** These are component's element state props */
 export interface NavigationButtonProps {
   direction: "left" | "right";
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -29,8 +40,4 @@ export interface ProjectContentProps {
 
 export interface ProjectBackgroundProps {
   project: Project;
-}
-
-export interface ProjectsPageResponse {
-  projects: Project[];
 }
