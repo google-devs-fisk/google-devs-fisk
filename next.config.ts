@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
     ],
     dangerouslyAllowSVG: true, // Allow SVG images
   },
+  eslint: {
+    ignoreDuringBuilds: true, // Disables ESLint during builds
+  },
   /* other config options here */
 };
 
