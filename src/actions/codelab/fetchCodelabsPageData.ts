@@ -3,7 +3,6 @@
 import { getFirestoreCloudClient } from "@/db";
 import { Timestamp } from "@google-cloud/firestore";
 import { CodelabsPageResponse, Codelab } from "@/types/codelabs";
-import { revalidateCodelabsCache } from "@/actions";
 
 /**
  * Fetches codelabs data and the last updated timestamp from the Firestore database.
@@ -11,8 +10,7 @@ import { revalidateCodelabsCache } from "@/actions";
  * This function retrieves the codelabs data from the "CodelabsPageResponse" document within
  * the "gdg-fisk-content" Firestore collection. It extracts the array of codelabs and a
  * timestamp of the last update. If the document does not exist or if the data structure
- * is invalid, an error is thrown. Upon successfully fetching the data, it triggers the cache 
- * revalidation to ensure the content is up-to-date.
+ * is invalid, an error is thrown.
  *
  * @returns {Promise<CodelabsPageResponse>} - Returns an object containing an array of codelab objects
  * and the last updated timestamp.
@@ -41,8 +39,6 @@ export const fetchCodelabsPageData = async (): Promise<CodelabsPageResponse> => 
     const lastUpdated: Timestamp = data?.lastUpdated instanceof Timestamp
       ? data.lastUpdated
       : new Timestamp(0, 0); // Default to Unix epoch if not a valid timestamp
-    // Revalidate the codelabs cache based on the last updated timestamp (in seconds)
-    revalidateCodelabsCache(lastUpdated.seconds);
     // Return the codelabs data and last updated timestamp
     return {
       codelabs,

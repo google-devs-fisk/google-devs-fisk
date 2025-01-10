@@ -25,8 +25,14 @@ export async function generateStaticCodelabIdPaths(): Promise<{ id: string }[]> 
       // Trigger revalidation for the codelabs cache if it's outdated
       console.log('Revalidating codelabs cache...');
       revalidateCacheUsingTag('codelabs');
+      // After revalidating, fetch the updated codelabs data
+      return await getCachedCodelabsData().then(response =>
+        response.codelabs.map((codelab: Codelab) => ({
+          id: codelab.id,
+        }))
+      );
     }
-    // Generate static params using the codelabs data
+    // If the cache is not outdated, generate static params using the current data
     return codelabsPageResponse.codelabs.map((codelab: Codelab) => ({
       id: codelab.id,
     }));
