@@ -20,7 +20,7 @@ yarn.lock
 # Import credentials and environment files
 .env
 .env.*
-credentials.json
+dbCredentials.json
 *.pem
 
 # Testing coverage
