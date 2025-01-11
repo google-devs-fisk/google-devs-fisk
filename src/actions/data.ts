@@ -1,6 +1,5 @@
-'use-client';
-
 import { Project, ProjectsPageResponse } from "@/types/projects";
+import { Timestamp } from "@google-cloud/firestore";
 
 const sampleProjectsResponse: ProjectsPageResponse = {
   projects: [
@@ -137,6 +136,7 @@ const sampleProjectsResponse: ProjectsPageResponse = {
       ],
     },
   ],
+  // lastUpdated: Timestamp.fromDate(new Date())
 };
 
 const projects: Project[] = sampleProjectsResponse.projects;

@@ -1,4 +1,5 @@
 import { Section, VideoContent } from "./common";
+import FirebaseFirestore from "@google-cloud/firestore";
 
 /** These are component's data state props */
 export interface RelevantLink {
@@ -21,6 +22,7 @@ export interface Project {
 
 export interface ProjectsPageResponse {
   projects: Project[];
+  lastUpdated: FirebaseFirestore.Timestamp;
 }
 
 /** These are component's element state props */

@@ -63,11 +63,20 @@ export async function subscriberFormSubmit(
       message: "Thank you for subscribing!", // Success message
     };
   } catch (error) {
-    console.error("Error subscribing email:", error);
-    return {
-      errors: {
-        _form: [error.message || "An error occurred while subscribing."],
-      },
-    };
+    if (error instanceof Error) {
+      // Now TypeScript knows that error is an instance of Error
+      return {
+        errors: {
+          _form: [error.message || "An error occurred while subscribing."],
+        },
+      };
+    } else {
+      // Handle non-Error cases, like custom errors or unexpected types
+      return {
+        errors: {
+          _form: ["An unknown error occurred while subscribing."],
+        },
+      };
+    }
   }
 }
