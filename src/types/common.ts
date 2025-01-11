@@ -62,6 +62,7 @@ export interface BtnProps {
     text: string;
     link: string;
     variant?: string;
+    extra?: string;
 }
 
 export interface ImageComponentProps {
