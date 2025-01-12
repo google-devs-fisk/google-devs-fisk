@@ -4,15 +4,6 @@ import React from 'react';
 import Image from 'next/image';
 import {Carousel} from 'react-bootstrap'
 
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
-// Import required Swiper modules
-import { Navigation, Pagination } from 'swiper/modules';
-
 const ProjectCarousel: React.FC = () => {
   const projects = [
     {

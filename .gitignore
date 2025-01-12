@@ -5,6 +5,7 @@
 /.pnp
 .pnp.*
 
+dbCredentials.json
 # Yarn files
 .yarn/*
 !.yarn/patches
