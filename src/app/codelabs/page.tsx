@@ -18,8 +18,8 @@ export default async function Codelabs() {
             </Suspense>
           ))}
         </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 }

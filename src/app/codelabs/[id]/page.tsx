@@ -34,8 +34,8 @@ export default async function CodelabInfo({ params }: CodelabInfoPageProps) {
             <CodelabInfoCardComponent codelab={codelab} />
           </Suspense>
         </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 }
