@@ -31,3 +31,8 @@ export { default as CarouselWithGrid } from "./projects/CarouselWithGrid";
 
 export { default as ContactCard } from "./contact/contactCard";
 export { default as InputField } from "./contact/inputField";
+
+export { default as Hero} from "./workculture/hero";
+export { default as WatchNow } from "./workculture/watchnow";
+export { default as TeamStats } from "./workculture/teamstats";
+export { default as FloatingIcons } from "./workculture/floatingIcons";
