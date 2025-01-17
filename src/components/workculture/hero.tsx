@@ -29,7 +29,7 @@ const Hero = () => {
       <FloatingIcons />
 
       {/* Main content */}
-      <div className="relative">
+      <div className="relative min-h-screen flex items-center">
         <div className="text-[28px] sm:text-[36px] md:text-[48px] lg:text-[61px] font-bold pb-[50px] sm:pb-[70px] md:pb-[100px] mt-[100px] sm:mt-[150px] lg:mt-[210px] mx-5 sm:mx-10 md:mx-[100px] lg:mx-[200px] leading-tight">
           <span className="relative inline-block">
             <span className="absolute -inset-1 w-full h-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 blur-sm"></span>
