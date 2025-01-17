@@ -1,3 +1,5 @@
+import { Timestamp } from "@google-cloud/firestore";
+
 export interface KeyLearning {
     content: string;
     icon?: string;
@@ -15,4 +17,5 @@ export interface Codelab {
 
 export interface CodelabsPageResponse {
     codelabs: Codelab[]
+    lastUpdated: Timestamp;
 }

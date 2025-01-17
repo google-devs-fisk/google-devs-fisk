@@ -11,9 +11,15 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        borderPrimary: "var(--primary-border-color)",
+      },
+      blur: {
+        "4xl": "64px",
+        "5xl": "96px",
       },
       screens: {
-        'custom-740': '740px', // Screen for mobile-responsive nav
+        "custom-740": "740px", // Screen for mobile-responsive nav
+        "custom-420": "420px", // Screen for mobile-responsive keySpan
       },
     },
   },
