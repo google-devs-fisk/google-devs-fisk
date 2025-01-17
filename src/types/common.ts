@@ -37,8 +37,9 @@ export interface Goal {
 export interface Metric {
     metricHeading: string;
     stat: NumericalStat;
-    metricSubHeading: string;
-    goals: Goal[];
+    metricSubHeading?: string;
+    subHeadingStat?: NumericalStat;
+    goals?: Goal[];
 }
 
 export interface ProjectSummary {

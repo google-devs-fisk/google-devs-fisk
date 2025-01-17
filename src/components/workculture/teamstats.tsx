@@ -2,10 +2,16 @@ import React from "react";
 import { Rod, DepthBlur, ImageComponent } from "@/components";
 import TimelineItem from "./timelineItem";
 import StatCard from "./statsCard";
+import { Metric, Testimonial } from "@/types/common";
 
+interface TeamStatsProps {
+  testimonials: Testimonial[];
+  metrics: Metric[];
+}
 
-
-const Teamstats = () => {
+const Teamstats = ({ testimonials, metrics }: TeamStatsProps) => {
+  // TODO: Utilize testimonials and metrics data to dynamically render this component
+  console.log(testimonials, metrics);
   return (
     <div className="flex flex-col mx-auto lg:flex-row gap-8 lg:gap-12 p-4 sm:p-6 lg:p-8 mb-[50px] lg:mb-[100px]">
       {/* Left Section */}
