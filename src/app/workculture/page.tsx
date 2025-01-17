@@ -22,7 +22,7 @@ function page() {
       <main className="absolute w-full overflow-hidden">
         <Hero />
         <WatchNow culturePageVideo={testCulturePageResponse.culturePageVideo}/>
-        {/* <TeamStats /> */}
+        <TeamStats />
         <Footer />
       </main>
     </div>

@@ -1,4 +1,4 @@
-import CircularProgress from "../shared/circularProgressBar";
+import { CircularProgress } from "@/components";
 import ProgressBar from "./linearProgressBar";
 
 type StatProps = {

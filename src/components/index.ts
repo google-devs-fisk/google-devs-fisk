@@ -18,6 +18,9 @@ export { default as NewsLetter } from "./shared/newsLetter";
 export { default as BackgroundGrid } from "./shared/backgroundGrid";
 export { default as ContactNewsletter } from "./shared/contactNewsletter";
 
+export { default as CircularProgress } from "./shared/circularProgressBar";
+export { default as Rod } from "./shared/rod";
+
 export { default as CodelabsShowComponent } from "./codelabs/codelabsShowComponent";
 export { default as CodelabInfoCardComponent } from "./codelabs/codelabInfoCardComponent";
 export { default as Landing } from "./home/Landing";

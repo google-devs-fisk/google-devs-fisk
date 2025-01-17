@@ -1,6 +1,5 @@
 import React from "react";
-import Rod from "../shared/rod";
-import DepthBlur from "../shared/depthBlur";
+import { Rod, DepthBlur, ImageComponent } from "@/components";
 import TimelineItem from "./timelineItem";
 import StatCard from "./statsCard";
 
@@ -12,7 +11,7 @@ const Teamstats = () => {
       {/* Left Section */}
       <div className="flex-1 mt-[50px] lg:mt-[150px]">
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-[60px] lg:mb-[120px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 mb-[60px] lg:mb-[120px]">
           <StatCard
             title="ONGOING PROJECTS"
             value="03"
@@ -37,18 +36,18 @@ const Teamstats = () => {
         </div>
 
         {/* Image Container */}
-        <div className="relative mx-auto lg:ml-[100px] w-full max-w-[480px] aspect-square rounded-tl-[60%] bg-gradient-to-b from-[#5e6cc3] via-purple-500 to-[#dc00d3] overflow-visible">
+        <div className="relative mx-auto lg:ml-[100px] w-[40vw] min-w-[300px] max-w-[500px] overflow-visible">
           <div className="absolute left-[200px] -top-[50px] w-[200px] h-[300px] sm:w-[300px] sm:h-[400px] lg:w-[400px] lg:h-[600px] bg-gradient-to-r from-[#dc00d3] to-[#46c6fd] rounded-full filter blur-5xl opacity-70"></div>
-          <img
+          <ImageComponent
             src="/images/placeholders/work-culture-placholder1.png"
-            className="absolute -top-[130px] h-[128%] w-full object-cover z-10"
-            alt="Team Culture"
+            minHeight={500}
+            className="w-full"
           />
         </div>
       </div>
 
       {/* Right Section - Timeline */}
-      <div className="mt-[50px] lg:mt-[130px] max-w-md relative">
+      <div className="mt-[100px] lg:mt-[155px] max-w-[45%] mx-auto relative">
         {/* Rod positioned absolutely behind timeline items */}
         <div className="absolute left-[60%] transform -translate-x-1/2 w-full h-full -mt-8">
           <Rod style="h-[990px] sm:h-[830px] w-[27px]" />
