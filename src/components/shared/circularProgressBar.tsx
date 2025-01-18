@@ -1,6 +1,6 @@
 // Circular progress component
 const CircularProgress = ({ percentage }: { percentage: number }) => (
-  <div className="relative w-16 h-16">
+  <div className="relative w-28 h-28 -mt-14">
     <svg className="w-full h-full" viewBox="0 0 100 100">
       <circle
         className="text-gray-600/40 stroke-current"
