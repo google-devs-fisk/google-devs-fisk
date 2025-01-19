@@ -9,9 +9,9 @@ const Projects: React.FC = () => {
         <SwiperComponent />
       </div>
 
-      <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-pink-400 transition duration-300 lg:w-1/4 ml-10 mt-10">
+      {/* <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-pink-400 transition duration-300 lg:w-1/4 ml-10 mt-10">
           Learn More
-      </button>
+      </button> */}
     </div>
   );
 };

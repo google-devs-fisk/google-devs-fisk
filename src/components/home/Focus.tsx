@@ -1,53 +1,85 @@
+"use client"
+
 import React from 'react'
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+
 const Focus = () => {
+    const ref = React.useRef(null);
+    const isInView = useInView(ref, { once: true, amount: 0.3 });
 
     const domains = [
         {
             'src':'/images/placeholders/work-culture-placeholder2.png',
-            'title': 'Full Stack Web Development',
-            'width': 450,
-            'margint': 0
+            'title': 'Full Stack\nWeb Development',
+            'width': 400,
+            'height': 400
+        },
+        {
+            'src':'/images/placeholders/work-culture-placeholder3.jpg',
+            'title': 'Android and iOS\nDevelopment',
+            'width': 300,
+            'height': 300
         },
         {
             'src':'/images/placeholders/work-culture-placeholder3.jpg',
             'title': 'Machine Learning',
-            'width': 300,
-            'margint': 3
+            'width': 400,
+            'height': 400
         },
-        {
-            'src':'/images/placeholders/work-culture-placeholder3.jpg',
-            'title': 'Android and iOS Development',
-            'width': 450,
-            'margint': 0
-        },
-        
-
     ];
-  return (
-    <div className='flex flex-col'>
-        <div className='flex flex-row justify-end mr-20 pr-3 mb-10 mt-10'>
-            <h1 className='primary-heading text-6xl font-bold mb-5 mr-3'>Key Focus</h1>
-            <h1 className='text-6xl font-bold mb-5'>Domains</h1>
-        </div>
 
-        <div className='flex justify-center'>
-            {domains.map((domain, index) => (
-                <div key={index} className={`flex flex-col m-2 p-2`}>
-                    <Image
-                     src={domain.src} 
-                     alt={domain.title} 
-                     width={domain.width}
-                     height={200}
-                     className={`rounded-2xl border-2 border-blue-700 mt-${domain.margint} pt-${domain.margint}`}
-                     />
-                     
-                    <h2 className='text-3xl mt-2'>{domain.title}</h2>
+    return (
+        <div ref={ref} className='min-h-screen flex flex-col justify-center items-center py-20 px-4'>
+            <motion.div 
+                initial={{ y: 50, opacity: 0 }}
+                animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className='flex flex-col items-center max-w-7xl w-full'
+            >
+                <div className='text-center mb-20'>
+                    <h1 className='text-7xl font-bold'>
+                        <span className='text-[#46c6fd]'>Key Focus</span>{' '}
+                        <span className='text-[#8B7FD3]'>Domains</span>
+                    </h1>
                 </div>
-            ))}
+
+                <motion.div 
+                    className='grid grid-cols-1 md:grid-cols-3 gap-8 w-full'
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                >
+                    {domains.map((domain, index) => (
+                        <motion.div 
+                            key={index} 
+                            className='flex flex-col items-center'
+                            initial={{ y: 50, opacity: 0 }}
+                            animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+                            transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.2 }}
+                        >
+                            <div className='relative group cursor-pointer'>
+                                <div className='absolute -inset-1 rounded-[2rem] bg-gradient-to-r from-[#46c6fd] to-[#dc00d3] opacity-75 blur-sm group-hover:opacity-100 transition duration-1000 group-hover:duration-200'></div>
+                                <div className='relative rounded-[2rem] bg-[#1E1B26] p-2'>
+                                    <Image
+                                        src={domain.src} 
+                                        alt={domain.title} 
+                                        width={domain.width}
+                                        height={domain.height}
+                                        className='rounded-[1.8rem] aspect-square object-cover'
+                                    />
+                                </div>
+                            </div>
+                            <h2 className='text-3xl font-semibold mt-6 text-center text-white whitespace-pre-line'>
+                                {domain.title}
+                            </h2>
+                        </motion.div>
+                    ))}
+                </motion.div>
+            </motion.div>
         </div>
-    </div>
-  )
+    )
 }
 
-export default Focus
+export default Focus;
