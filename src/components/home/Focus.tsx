@@ -12,19 +12,19 @@ const Focus = () => {
 
     const domains = [
         {
-            'src':'/images/web-dev-image.png',
+            'src':'https://storage.googleapis.com/gdg-fisk-assets/images/web-dev-image.png',
             'title': 'Full Stack\nWeb Development',
             'width': 400,
             'height': 400
         },
         {
-            'src':'/images/mobile-app-dev.jpg',
+            'src':'https://storage.googleapis.com/gdg-fisk-assets/images/mobile-app-dev.jpg',
             'title': 'Android and iOS\nDevelopment',
             'width': 300,
             'height': 300
         },
         {
-            'src':'/images/ml-image.png',
+            'src':'https://storage.googleapis.com/gdg-fisk-assets/images/ml-image.png',
             'title': 'Machine Learning',
             'width': 400,
             'height': 400

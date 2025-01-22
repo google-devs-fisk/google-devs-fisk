@@ -30,15 +30,15 @@ export default function Home() {
               <Landing/>
             </div>
           </Suspense>
-          <div className="my-20"><TextSection btnLink={missionBtnInfo} paragraph={missionPara} heading={missionStatement} flipLayout={true} imgURL="/images/empowering-next-gen.png" /></div>
+          <div className="my-20"><TextSection btnLink={missionBtnInfo} paragraph={missionPara} heading={missionStatement} flipLayout={true} imgURL="https://storage.googleapis.com/gdg-fisk-assets/images/empowering-next-gen.png" /></div>
           {/* <div className="mb-10"><Projects/></div> */}
           <div className="my-20"><Focus/></div>
-          <div className="my-20"><TextSection btnLink={valueBtnInfo} paragraph={valuePara} heading={valueStatement} flipLayout={false} imgURL="/images/placeholders/home-placeholder9.png" loadOverlayContent={true} /></div>
+          <div className="my-20"><TextSection btnLink={valueBtnInfo} paragraph={valuePara} heading={valueStatement} flipLayout={false} imgURL="https://storage.googleapis.com/gdg-fisk-assets/images/home-placeholder9.png" loadOverlayContent={true} /></div>
           {/* <div className="my-20"><TextSection paragraph={para} heading="This can be used as a paragraph with no image" flipLayout={true} /></div> */}
           {/* <div className="my-20"><TextSection heading="This can be used as an image with no paragraph" flipLayout={false} imgURL="/images/placeholders/home-placeholder9.png"/></div>
           <div className="my-20"><TextSection heading="This can be used as a heading" /></div> */}
           <div className="my-20">
-            <ImageComponent src="/images/placeholders/home-placeholder7.jpg" minHeight={600} opacity={0.6} />
+            <ImageComponent src="https://storage.googleapis.com/gdg-fisk-assets/images/home-placeholder7.jpg" minHeight={600} opacity={0.6} />
             </div>
           <ContactNewsletter/>
           <Footer />
