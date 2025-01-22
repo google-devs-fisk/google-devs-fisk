@@ -4,6 +4,7 @@ import React from 'react'
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
+import { HeadingWithSpan } from "@/components";
 
 const Focus = () => {
     const ref = React.useRef(null);
@@ -11,19 +12,19 @@ const Focus = () => {
 
     const domains = [
         {
-            'src':'/images/placeholders/work-culture-placeholder2.png',
+            'src':'/images/web-dev-image.png',
             'title': 'Full Stack\nWeb Development',
             'width': 400,
             'height': 400
         },
         {
-            'src':'/images/placeholders/work-culture-placeholder3.jpg',
+            'src':'/images/mobile-app-dev.jpg',
             'title': 'Android and iOS\nDevelopment',
             'width': 300,
             'height': 300
         },
         {
-            'src':'/images/placeholders/work-culture-placeholder3.jpg',
+            'src':'/images/ml-image.png',
             'title': 'Machine Learning',
             'width': 400,
             'height': 400
@@ -31,20 +32,16 @@ const Focus = () => {
     ];
 
     return (
-        <div ref={ref} className='min-h-screen flex flex-col justify-center items-center py-20 px-4'>
+        <div ref={ref} className='flex flex-col justify-center items-center px-4'>
             <motion.div 
                 initial={{ y: 50, opacity: 0 }}
                 animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className='flex flex-col items-center max-w-7xl w-full'
             >
-                <div className='text-center mb-20'>
-                    <h1 className='text-7xl font-bold'>
-                        <span className='text-[#46c6fd]'>Key Focus</span>{' '}
-                        <span className='text-[#8B7FD3]'>Domains</span>
-                    </h1>
+                <div className='mb-20'>
+                    <HeadingWithSpan heading='Key Focus Domains' />
                 </div>
-
                 <motion.div 
                     className='grid grid-cols-1 md:grid-cols-3 gap-8 w-full'
                     initial={{ y: 50, opacity: 0 }}
@@ -71,7 +68,7 @@ const Focus = () => {
                                     />
                                 </div>
                             </div>
-                            <h2 className='text-3xl font-semibold mt-6 text-center text-white whitespace-pre-line'>
+                            <h2 className='secondary-color text-xl sm:text-2xl lg:text-3xl font-light leading-tight mt-6 whitespace-pre-line'>
                                 {domain.title}
                             </h2>
                         </motion.div>

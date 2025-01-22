@@ -14,7 +14,7 @@ const OverflowContent: React.FC<OverflowContentProps> = ({
   altText = 'Overflow Image',
 }) => {
   return (
-    <div className="relative flex flex-col items-center justify-center">
+    <div className="relative flex flex-col items-center justify-center pt-15">
       {/* Background Shape */}
       <div className="w-[350px] h-[350px] flex items-center justify-center rounded-full">
         <LeftHalfRectangle className="w-full h-full" />

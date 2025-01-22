@@ -1,56 +1,76 @@
 "use client"
 
-import React from 'react';
-import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import EllipseEffect from "./ellipseEffect";
+import HeroOverlay from "./heroOverlay";
+import { BgGrid, Btn } from "@/components";
+import { BtnProps } from "@/types/common";
+import { useInViewAnimation } from "@/hooks/useInViewAnimation";
+import { contentAnimation, imageAnimation } from "@/animations/animations";
 
 const Landing = () => {
+  // TODO: This URL is test value and should be removed.
+  // The URL should be fetched from the HomePageResponse.
+  const buttonInfo: BtnProps = {
+    text: "Play now ▶",
+    link: "/",
+  };
+  const { ref, isInView } = useInViewAnimation({ margin: "-20%", once: true });
+  const animationDelay = 0.4; // Base delay for the animations
   return (
-    <div className="relative h-screen flex flex-col justify-center bg-gradient-to-br from-purple-950/90 via-purple-950 to-blue-950">
-      {/* Content Section - Left Side */}
+    <div className="relative h-screen flex flex-col justify-center items-center overflow-hidden">
+      {/* Content Section */}
       <AnimatePresence mode="sync">
-        <motion.div 
-          className="relative z-20 pl-24 w-1/2"
+        <motion.div
+          ref={ref}
+          className="absolute z-20 w-[80%] mx-auto h-auto p-10"
           initial={{ x: -200, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
+          animate={isInView ? { x: 0, opacity: 1 } : { x: -200, opacity: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
+          variants={contentAnimation(animationDelay)}
         >
-          <h1 className="text-8xl font-bold text-white mb-6 drop-shadow-lg tracking-wide">
+          <h1 className="secondary-color text-4xl sm:text-6xl lg:text-8xl font-bold leading-tight">
             GOOGLE DEVS
           </h1>
-          <h2 className="text-7xl font-bold mb-10 tracking-wide bg-gradient-to-l from-[#46c6fd] to-[#dc00d3] text-transparent bg-clip-text">
-            FISK UNIVERSITY
+          <h2 className="primary-heading text-2xl sm:text-4xl lg:text-6xl font-bold leading-tight mb-10 py-2">
+            @Fisk
           </h2>
-          <p className="text-2xl text-white mb-3 drop-shadow-md max-w-3xl">
-            Come Together To Identify Problems, Conceptualize
+          <p className="secondary-color text-xl sm:text-3xl lg:text-4xl font-light leading-tight mb-10">
+            Come together to identify problems, conceptualize coding ideas, and find the answers.
           </p>
-          <p className="text-2xl text-white mb-14 drop-shadow-md max-w-3xl">
-            Coding Ideas, And Find The Answers.
-          </p>
-          <button className="bg-gradient-to-r from-[#46c6fd] to-[#dc00d3] hover:from-[#dc00d3] hover:to-[#46c6fd] text-white px-10 py-4 rounded-full text-xl font-semibold transition-all duration-300 transform hover:scale-105 drop-shadow-[0_0_15px_rgba(220,0,211,0.5)] hover:drop-shadow-[0_0_25px_rgba(70,198,253,0.6)]">
-            Learn More
-          </button>
+          <Btn {...buttonInfo} />
         </motion.div>
       </AnimatePresence>
-
-      {/* Image Section - Right Side */}
+      {/* Image Section */}
       <AnimatePresence mode="sync">
-        <motion.div 
-          className="absolute right-0 top-0 w-4/5 h-full mix-blend-overlay opacity-80"
+        <motion.div
+          className="absolute right-0 top-0 w-full h-full will-change-transform"
           initial={{ x: 200, opacity: 0 }}
-          animate={{ x: 0, opacity: 0.8 }}
+          animate={isInView ? { x: 0, opacity: 1 } : { x: 200, opacity: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
+          variants={imageAnimation(animationDelay)}
         >
-          <Image
-            src="/images/placeholders/home-placeholder1.png"
-            alt="Background"
-            fill
-            className="object-cover object-center"
-            priority
-            quality={100}
-          />
+          <div className="relative w-full h-full">
+            <Image
+              src="/images/landing-hero-img.png"
+              alt="Background"
+              fill
+              className="object-cover object-center z-10 opacity-75"
+              loading="lazy"
+              quality={95}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 60vw"
+            />
+          </div>
         </motion.div>
       </AnimatePresence>
+      {/* The Background Grid */}
+      <BgGrid />
+      {/* The Background Overlay */}
+      <HeroOverlay />
+      {/* Background Ellipse */}
+      <EllipseEffect />
     </div>
   );
 };
