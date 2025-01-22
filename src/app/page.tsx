@@ -20,18 +20,17 @@ export default function Home() {
   return (
   <div className="h-screen flex flex-col">
     <Nav />
-    <div className="flex-1 overflow-y-auto scrollable-content mt-10">
-      {/* <div className="mb-10"><VideoComponent videoContent={videoData} buttonInfo={buttonData} /></div> */}
-      {/* <div className="mb-10"><Landing/></div>
+    <div className="flex-1 overflow-y-auto scrollable-content">
+      <div className="mb-10"><Landing/></div>
       <div className="mb-10"><TextSection btnLink={buttonProps} paragraph={para} heading="Empowering Next-Gen Coders to collaborate on real world projects" flipLayout={true} imgURL="/images/placeholders/home-placeholder8.png" /></div>
-      <div className="mb-10"><Projects/></div>
+      {/* <div className="mb-10"><Projects/></div> */}
       <div className="mb-10"><Focus/></div>
       <div className="mb-10"><Values/></div>
-      <div className="mb-10"><Newsletter/></div> */}
-      {/* <div className="mb-10"><TextSection paragraph={para} heading="This can be used as a paragraph with no image" flipLayout={true} /></div>
-      <div className="mb-10"><TextSection heading="This can be used as an image with no paragraph" flipLayout={false} imgURL="/images/placeholders/home-placeholder9.png"/></div>
-      <div className="mb-10"><TextSection heading="This can be used as a heading" /></div>
-      <div className="mb-10"><ImageComponent src="/images/placeholders/home-placeholder7.jpg" /></div> */}
+      {/* <div className="mb-10"><TextSection paragraph={para} heading="This can be used as a paragraph with no image" flipLayout={true} /></div> */}
+      {/* <div className="mb-10"><TextSection heading="This can be used as an image with no paragraph" flipLayout={false} imgURL="/images/placeholders/home-placeholder9.png"/></div>
+      <div className="mb-10"><TextSection heading="This can be used as a heading" /></div> */}
+      <div className="mb-10"><ImageComponent src="/images/placeholders/home-placeholder7.jpg" /></div>
+      <div className="mb-10"><Newsletter/></div>
       <Footer />
     </div>
   </div>
