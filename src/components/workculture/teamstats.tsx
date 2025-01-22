@@ -54,7 +54,7 @@ const Teamstats = ({ testimonials, metrics }: TeamStatsProps) => {
         <div className="relative mx-auto lg:ml-[100px] w-[40vw] min-w-[300px] max-w-[500px] overflow-visible">
           <div className="absolute left-[200px] -top-[50px] w-[200px] h-[300px] sm:w-[300px] sm:h-[400px] lg:w-[400px] lg:h-[600px] bg-gradient-to-r from-[#dc00d3] to-[#46c6fd] rounded-full filter blur-5xl opacity-70"></div>
           <ImageComponent
-            src="/images/placeholders/work-culture-placholder1.png"
+            src="https://storage.googleapis.com/gdg-fisk-assets/images/work-culture-placholder1.png"
             minHeight={500}
             className="w-full"
           />

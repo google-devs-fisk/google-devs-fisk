@@ -7,7 +7,7 @@ import FirebaseFirestore from "@google-cloud/firestore";
 const testCulturePageResponse: CulturePageResponse = {
     culturePageVideo: {
       title: 'The Team Culture',
-      imgUrl: '/images/placeholders/work-culture-placeholder2.png',
+      imgUrl: 'https://storage.googleapis.com/gdg-fisk-assets/images/work-culture-placeholder2.png',
       videoUrl: '/',
       genres: ['COLLABORATIVE LEARNING', 'PASSION', 'SARCASM'],
     },

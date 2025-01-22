@@ -26,7 +26,7 @@ const Hero = () => {
         {/* Background Image */}
         <ImageComponent
           alt="collaborative learning"
-          src="/images/placeholders/work-culture-placeholder3.jpg"
+          src="/images/work-culture-hero.jpg"
           minHeight={300}
           opacity={0.2}
           className="absolute h-full"
