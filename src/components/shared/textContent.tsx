@@ -21,7 +21,7 @@ export default function TextContent({
       <div className="mb-20"><HeadingWithSpan heading={heading} /></div>
       {paragraph && <p className="text-lg sm:text-xl secondary-color mb-20">{paragraph}</p>}
       {btnProps && (
-        <div className="mr-auto">
+        <div className="mr-auto mb-10">
             <Btn {...btnProps} />
         </div>
        )}

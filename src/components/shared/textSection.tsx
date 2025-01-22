@@ -6,6 +6,7 @@ import OverflowContent from './overflowContent';
 import { TextSectionProps, BtnProps } from '@/types/common';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
+import { ImageComponent } from '@/components';
 
 function renderRightContent(
   flipLayout: boolean,
@@ -13,6 +14,7 @@ function renderRightContent(
   heading: string,
   paragraph?: string,
   btnLink?: BtnProps,
+  loadOverlayContent?: boolean,
   inView?: boolean
 ) {
   const contentVariants = {
@@ -38,7 +40,18 @@ function renderRightContent(
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
     >
-      <OverflowContent imgURL={imgURL} />
+      {!loadOverlayContent ? (
+        <div className="w-[470px] h-[450px] flex items-center justify-center rounded-lg">
+          <ImageComponent
+            src={imgURL}
+            alt={heading}
+            minHeight={500}
+            className="w-full h-auto"
+          />
+        </div>
+      ) : (
+        <OverflowContent imgURL={imgURL} />
+      )}
     </motion.div>
   );
 }
@@ -49,6 +62,7 @@ function renderLeftContent(
   heading: string,
   paragraph?: string,
   btnLink?: BtnProps,
+  loadOverlayContent?: boolean,
   inView?: boolean
 ) {
   const contentVariants = {
@@ -74,7 +88,18 @@ function renderLeftContent(
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
     >
-      <OverflowContent imgURL={imgURL} />
+      {!loadOverlayContent ? (
+        <div className="w-[470px] h-[450px] flex items-center justify-center rounded-lg">
+          <ImageComponent
+            src={imgURL}
+            alt={heading}
+            minHeight={500}
+            className="w-full h-auto"
+          />
+        </div>
+      ) : (
+        <OverflowContent imgURL={imgURL} />
+      )}
     </motion.div>
   );
 }
@@ -85,6 +110,7 @@ export default function TextSection({
   imgURL,
   btnLink,
   flipLayout = false, // Default layout is left-right
+  loadOverlayContent = false, // Default to false (don't show OverflowContent)
 }: TextSectionProps) {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
@@ -92,18 +118,18 @@ export default function TextSection({
   return (
     <section 
       ref={ref}
-      className="relative flex flex-col lg:flex-row items-center justify-center h-screen px-6 sm:px-12 max-w-7xl mx-auto"
+      className="relative flex flex-col lg:flex-row items-center justify-center px-6 sm:px-12 max-w-7xl mx-auto"
     >
       {imgURL ? (
         <>
           {/* Left Section */}
           <div className="flex flex-col items-center text-center lg:text-left lg:items-start lg:w-1/2">
-            {renderLeftContent(flipLayout, imgURL, heading, paragraph, btnLink, isInView)}
+            {renderLeftContent(flipLayout, imgURL, heading, paragraph, btnLink, loadOverlayContent, isInView)}
           </div>
 
           {/* Right Section */}
           <div className="flex flex-col items-end justify-center overflow-visible lg:w-1/2">
-            {renderRightContent(flipLayout, imgURL, heading, paragraph, btnLink, isInView)}
+            {renderRightContent(flipLayout, imgURL, heading, paragraph, btnLink, loadOverlayContent, isInView)}
           </div>
         </>
       ) : (

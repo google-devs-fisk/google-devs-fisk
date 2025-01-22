@@ -64,6 +64,7 @@ export interface BtnProps {
     link: string;
     variant?: string;
     extra?: string;
+    newTab?: boolean;
 }
 
 export interface ImageComponentProps {
@@ -89,6 +90,7 @@ export interface TextSectionProps {
     imgURL?: string;
     btnLink?: BtnProps; 
     flipLayout?: boolean;
+    loadOverlayContent?: boolean;
 }
 
 export interface KeySpanProps {
