@@ -1,5 +1,5 @@
 import { BgGrid, DepthBlur, Footer, Nav, ContactCard, ContactNewsletter } from "@/components";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const Contact = () => {
   return (

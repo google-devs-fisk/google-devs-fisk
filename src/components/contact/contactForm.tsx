@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import InputField from "./inputField";
 import CHeader from "./cardHeader";
 import * as actions from "@/actions";
