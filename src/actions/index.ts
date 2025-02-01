@@ -12,6 +12,10 @@ export { fetchProjectsPageData } from "./projects/fetchProjectsPageData";
 export { getCachedProjectsData } from "./projects/getCachedProjectsData";
 export { generateStaticProjectIdPaths } from "./projects/generateStaticProjectIdPaths";
 
+export { fetchWorkCulturePageData } from "./workculture/fetchWorkCulturePageData";
+export { getCachedWorkCultureData } from "./workculture/getCachedWorkCultureData";
+export { generateStaticWorkCultureIdPaths } from "./workculture/generateStaticWorkCultureIdPaths";
+
 // Helper functions (utils)
 export {
   revalidateCacheUsingTag,
