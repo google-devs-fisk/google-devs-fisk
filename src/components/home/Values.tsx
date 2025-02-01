@@ -3,7 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 const Values = () => {
   const ref = React.useRef(null);

@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { motion, AnimatePresence } from "framer-motion";
 import EllipseEffect from "./ellipseEffect";
 import HeroOverlay from "./heroOverlay";
@@ -38,7 +38,8 @@ const Landing = () => {
             @Fisk
           </h2>
           <p className="secondary-color text-xl sm:text-3xl lg:text-4xl font-light leading-tight mb-10">
-            Come together to identify problems, conceptualize coding ideas, and find the answers.
+            Come together to identify problems, conceptualize coding ideas, and
+            find the answers.
           </p>
           <Btn {...buttonInfo} />
         </motion.div>
@@ -56,7 +57,7 @@ const Landing = () => {
             <Image
               src="/images/landing-hero-img.png"
               alt="Background"
-              fill
+              layout="fill"
               className="object-cover object-center z-10 opacity-75"
               loading="lazy"
               quality={95}

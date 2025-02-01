@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { HeadingWithSpan } from "@/components";

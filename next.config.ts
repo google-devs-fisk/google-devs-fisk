@@ -2,11 +2,15 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['storage.googleapis.com'],
     remotePatterns: [
       {
         protocol: "https",
         hostname: "cdn.builder.io",
+      },
+      {
+        protocol: "https",
+        hostname: "storage.googleapis.com",
+        pathname: "/**",
       },
     ],
     dangerouslyAllowSVG: true, // Allow SVG images
