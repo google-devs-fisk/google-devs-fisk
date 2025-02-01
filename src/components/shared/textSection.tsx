@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import React from 'react';
-import TextContent from './textContent';
-import OverflowContent from './overflowContent';
-import { TextSectionProps, BtnProps } from '@/types/common';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { ImageComponent } from '@/components';
+import React from "react";
+import TextContent from "./textContent";
+import OverflowContent from "./overflowContent";
+import { TextSectionProps, BtnProps } from "@/types/common";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { ImageComponent } from "@/components";
 
 function renderRightContent(
   flipLayout: boolean,
@@ -19,11 +19,11 @@ function renderRightContent(
 ) {
   const contentVariants = {
     hidden: { x: 100, opacity: 0 },
-    visible: { 
-      x: 0, 
+    visible: {
+      x: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut", delay: 0.2 }
-    }
+      transition: { duration: 0.6, ease: "easeOut", delay: 0.2 },
+    },
   };
 
   return flipLayout ? (
@@ -67,11 +67,11 @@ function renderLeftContent(
 ) {
   const contentVariants = {
     hidden: { x: -100, opacity: 0 },
-    visible: { 
-      x: 0, 
+    visible: {
+      x: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   return !flipLayout ? (
@@ -116,20 +116,36 @@ export default function TextSection({
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <section 
+    <section
       ref={ref}
-      className="relative flex flex-col lg:flex-row items-center justify-center px-6 sm:px-12 max-w-7xl mx-auto"
+      className="relative flex flex-col lg:flex-row items-center justify-center px-6 py-14 sm:px-12 max-w-7xl mx-auto"
     >
       {imgURL ? (
         <>
           {/* Left Section */}
           <div className="flex flex-col items-center text-center lg:text-left lg:items-start lg:w-1/2">
-            {renderLeftContent(flipLayout, imgURL, heading, paragraph, btnLink, loadOverlayContent, isInView)}
+            {renderLeftContent(
+              flipLayout,
+              imgURL,
+              heading!,
+              paragraph,
+              btnLink,
+              loadOverlayContent,
+              isInView
+            )}
           </div>
 
           {/* Right Section */}
           <div className="flex flex-col items-end justify-center overflow-visible lg:w-1/2">
-            {renderRightContent(flipLayout, imgURL, heading, paragraph, btnLink, loadOverlayContent, isInView)}
+            {renderRightContent(
+              flipLayout,
+              imgURL,
+              heading!,
+              paragraph,
+              btnLink,
+              loadOverlayContent,
+              isInView
+            )}
           </div>
         </>
       ) : (
@@ -138,7 +154,11 @@ export default function TextSection({
           animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <TextContent heading={heading} paragraph={paragraph} btnProps={btnLink} />
+          <TextContent
+            heading={heading!}
+            paragraph={paragraph}
+            btnProps={btnLink}
+          />
         </motion.div>
       )}
     </section>

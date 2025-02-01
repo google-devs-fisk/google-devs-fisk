@@ -27,15 +27,14 @@ export { default as Landing } from "./home/Landing";
 export { default as Projects } from "./home/Projects";
 export { default as Focus } from "./home/Focus";
 export { default as Values } from "./home/Values";
-export {default as Newsletter } from "./home/Newsletter";
+export { default as Newsletter } from "./home/Newsletter";
 
 export { default as ProjectComponents } from "./projects/ProjectComponents";
-export { default as CarouselWithGrid } from "./projects/CarouselWithGrid";
 
 export { default as ContactCard } from "./contact/contactCard";
 export { default as InputField } from "./contact/inputField";
 
-export { default as Hero} from "./workculture/hero";
+export { default as Hero } from "./workculture/hero";
 export { default as WatchNow } from "./workculture/watchnow";
 export { default as TeamStats } from "./workculture/teamstats";
 export { default as FloatingIcons } from "./workculture/floatingIcons";
