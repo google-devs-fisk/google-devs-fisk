@@ -1,14 +1,14 @@
-import React from "react";
-import { Footer, Nav, WatchNow, TeamStats, Hero } from "@/components";
-import { CulturePageResponse } from "@/types/culture";
+import React from 'react';
+import { Footer, Nav, WatchNow, TeamStats, Hero } from '@/components'
+import { CulturePageResponse } from '@/types/culture';
 import FirebaseFirestore from "@google-cloud/firestore";
-import { getCachedWorkCultureData } from "@/actions/workculture/getCachedWorkCultureData";
+import { getCachedWorkCultureData } from '@/actions/workculture/getCachedWorkCultureData';
 
 // These are test values. This content is dynamic and should be replaced with fetched values from WorkCulturePageResponse
 // const testCulturePageResponse: CulturePageResponse =
-//   await getCachedWorkCultureData();
+//       await getCachedWorkCultureData();
 const testCulturePageResponse: CulturePageResponse = {
-
+  
     culturePageVideo: {
       title: 'The Team Culture',
       imgUrl: 'https://storage.googleapis.com/gdg-fisk-assets/images/work-culture-placeholder2.png',
@@ -68,15 +68,12 @@ function page() {
       <Nav />
       <main className="absolute w-full overflow-hidden">
         <Hero />
-        <WatchNow culturePageVideo={testCulturePageResponse.culturePageVideo} />
-        <TeamStats
-          testimonials={testCulturePageResponse.testimonials}
-          metrics={testCulturePageResponse.metrics}
-        />
+        <WatchNow culturePageVideo={testCulturePageResponse.culturePageVideo}/>
+        <TeamStats testimonials={testCulturePageResponse.testimonials} metrics={testCulturePageResponse.metrics}/>
         <Footer />
       </main>
     </div>
   );
 }
 
-export default page;
+export default page
