@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react';
-import Image from "next/legacy/image";
 import LeftHalfRectangle from './leftHalfRectangle';
+import ImageComponent from './imageComponent';
 
 interface OverflowContentProps {
   imgURL: string; // URL of the image to display
@@ -22,13 +22,13 @@ const OverflowContent: React.FC<OverflowContentProps> = ({
 
       {/* Foreground Image */}
       <div className="w-[470px] h-[450px] flex items-center justify-center rounded-lg -mt-[445px]">
-        <Image
-          src={imgURL}
-          alt={altText}
-          width={500}
-          height={500}
-          className="w-full h-auto rounded-lg"
-        />
+          <ImageComponent
+            src={imgURL}
+            alt={altText}
+            minHeight={500}
+            rounded={true}
+            className="w-full h-auto"
+          />
       </div>
     </div>
   );

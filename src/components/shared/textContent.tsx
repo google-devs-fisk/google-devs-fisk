@@ -22,7 +22,7 @@ export default function TextContent({
         <HeadingWithSpan heading={heading} />
       </div>
       {paragraph && (
-        <p className="text-lg sm:text-xl secondary-color mb-20 px-12 sm:px-0 ">
+        <p className="project-description text-xl md:text-2xl pb-8 mb-20 px-12 sm:px-0 ">
           {paragraph}
         </p>
       )}

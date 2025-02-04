@@ -41,12 +41,13 @@ function renderRightContent(
       animate={inView ? "visible" : "hidden"}
     >
       {!loadOverlayContent ? (
-        <div className="w-[470px] h-[450px] flex items-center justify-center rounded-lg">
+        <div className="w-[470px] h-[450px] flex items-center justify-center rounded-3xl">
           <ImageComponent
             src={imgURL}
             alt={heading}
-            minHeight={500}
-            className="w-full h-auto"
+            rounded={true}
+            minHeight={400}
+            className="absolute w-[75vw] h-auto"
           />
         </div>
       ) : (
@@ -89,12 +90,13 @@ function renderLeftContent(
       animate={inView ? "visible" : "hidden"}
     >
       {!loadOverlayContent ? (
-        <div className="w-[470px] h-[450px] flex items-center justify-center rounded-lg">
+        <div className="w-[470px] h-[450px] flex items-center justify-center rounded-3xl">
           <ImageComponent
             src={imgURL}
             alt={heading}
-            minHeight={500}
-            className="w-full h-auto"
+            minHeight={400}
+            rounded={true}
+            className="absolute w-[75vw] h-auto"
           />
         </div>
       ) : (
@@ -118,7 +120,7 @@ export default function TextSection({
   return (
     <section
       ref={ref}
-      className="relative flex flex-col lg:flex-row items-center justify-center px-6 py-14 sm:px-12 max-w-7xl mx-auto"
+      className="relative flex flex-col lg:flex-row items-center justify-center px-6 py-14 sm:px-12 max-w-7xl mx-auto my-auto"
     >
       {imgURL ? (
         <>

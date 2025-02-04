@@ -52,7 +52,7 @@ const VideoComponent: React.FC<VideoComponentProps> = ({
       {/* Background Image */}
       <AnimatePresence mode="sync">
         <motion.div
-          className="absolute right-0 top-0 w-full h-full will-change-transform"
+          className="absolute right-0 top-0 w-full h-full will-change-transform -z-10"
           initial={{ x: 200, opacity: 0 }}
           animate={isInView ? { x: 0, opacity: 1 } : { x: 200, opacity: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
