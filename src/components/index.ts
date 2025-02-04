@@ -30,6 +30,8 @@ export { default as Values } from "./home/Values";
 export { default as Newsletter } from "./home/Newsletter";
 
 export { default as ProjectComponents } from "./projects/ProjectComponents";
+export { default as ProjectsWrapper } from "./projects/ProjectsWrapper";
+export { default as ProjectInfoWrapper } from "./projects/ProjectInfoWrapper";
 
 export { default as ContactCard } from "./contact/contactCard";
 export { default as InputField } from "./contact/inputField";

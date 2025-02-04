@@ -7,6 +7,7 @@ import FeaturesSection from "@/components/projects/FeaturesSection";
 import OverviewSection from "@/components/projects/OverviewSection";
 import ProblemStatementSection from "@/components/projects/ProblemStatementSection";
 import { Project } from "@/types/projects";
+import RelevantLinks from "./RelevantLinks";
 
 /*
   Renders detailed information about a project if data is available.
@@ -19,7 +20,7 @@ import { Project } from "@/types/projects";
   - FeaturesSection: Lists key features
   - DemoSection: Displays a demo video if available
 */
-export default function ProjectInfo({ project }: { project?: Project }) {
+export default function ProjectInfoWrapper({ project }: { project?: Project }) {
   // If project data is available, render the full project details
   if (project) {
     return (
@@ -27,12 +28,13 @@ export default function ProjectInfo({ project }: { project?: Project }) {
         <Nav />
         <div className="flex-1 overflow-y-auto">
           <HeroSection project={project} />
+          <DemoSection demoVideo={project.demo} />
           <OverviewSection overview={project.overview} />
           <ProblemStatementSection
             problemStatement={project.problemStatement}
           />
           <FeaturesSection features={project.features} />
-          <DemoSection demoVideo={project.demo} />
+          <RelevantLinks relevantLinks={project.relevantLinks}/>
         </div>
         <Footer />
       </div>

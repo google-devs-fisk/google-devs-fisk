@@ -1,10 +1,10 @@
 import { getCachedProjectsData } from "@/actions/projects/getCachedProjectsData";
-import Projects from "@/app/projects/Projects";
+import { ProjectsWrapper} from "@/components";
 
 /**
  * Fetches cached project data and passes it to the Projects component.
  */
 export default async function ProjectsInfoData() {
   const projectsData = await getCachedProjectsData();
-  return <Projects projectsData={projectsData} />;
+  return <ProjectsWrapper projectsData={projectsData.projects} />;
 }

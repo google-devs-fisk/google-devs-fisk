@@ -2,7 +2,6 @@ import {
   CodelabInfoCardComponent,
   Nav,
   Footer,
-  LoadingSkeleton,
 } from "@/components";
 import { getCachedCodelabsData } from "@/actions";
 import { Codelab } from "@/types/codelabs";

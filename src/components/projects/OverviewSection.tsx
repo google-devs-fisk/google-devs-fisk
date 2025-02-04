@@ -14,15 +14,15 @@ const OverviewSection = ({ overview }: { overview: Section }) => {
         className="text-4xl sm:text-5xl lg:text-6xl"
         heading="Overview of the project"
       />
-      <div className="pt-28">
+      <div className="overview rounded-3xl">
         {overviews.map((overview, index) => (
           <TextSection
             key={overview.content}
-            paragraph={overview.content}
             heading=""
+            paragraph={overview.content}
             flipLayout={index % 2 === 1} // Alternates layout for visual balance
             imgURL={overview.imgUrl}
-            loadOverlayContent={true}
+            loadOverlayContent={false}
           />
         ))}
       </div>

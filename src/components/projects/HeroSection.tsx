@@ -16,15 +16,17 @@ const HeroSection = ({ project }: { project: Project }) => (
     </motion.div>
 
     {/* Project title and metadata */}
-    <div className="relative pb-96 h-full w-full flex flex-col md:items-center justify-center">
-      <div className="text-5xl md:text-8xl font-bold py-4">
-        {project.projectTitle}
-      </div>
-      <div className="hero-details flex flex-row gap-4 items-center">
-        <div className="author bg-gray-600/95 px-1 md:px-4 py-3 rounded-md">
-          {project.author}
+    <div className="absolute justify-center z-20 p-10 lg:p-20 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full">
+      <div className="flex flex-col items-center justify-center text-center">
+        <div className="text-5xl md:text-8xl font-bold py-4 mx-auto">
+          {project.projectTitle}
         </div>
-        <div className="read-time">{project.readTimeInMins} min read</div>
+        <div className="hero-details flex flex-row gap-4 items-center">
+          <div className="author bg-gray-600/95 px-1 md:px-4 py-3 rounded-md">
+            {project.author}
+          </div>
+          <div className="read-time">{project.readTimeInMins} min read</div>
+        </div>
       </div>
     </div>
   </section>

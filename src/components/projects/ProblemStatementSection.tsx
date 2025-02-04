@@ -14,7 +14,7 @@ const ProblemStatementSection = ({
     <div className="px-4 sm:px-4 md:px-8 lg:px-44 w-full h-full">
       {/* Centered heading displaying the problem statement */}
       <HeadingWithSpan
-        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-8 lg:px-32"
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-8 lg:px-32"
         heading={`Problem Statement: ${problemStatement}`}
       />
       {/* Decorative blurred gradient background */}

@@ -14,12 +14,12 @@ const FeaturesSection = ({ features }: { features: Section }) => {
         className="text-4xl sm:text-5xl lg:text-6xl"
         heading="Implemented Features"
       />
-      <div className="my-28">
+      <div className="my-10">
         {featureList.map((feature, index) => (
           <TextSection
             key={feature.content}
-            paragraph={feature.content}
-            heading=""
+            heading={feature.content}
+            paragraph=""
             flipLayout={index % 2 === 1} // Alternates layout for visual variety
             imgURL={feature.imgUrl}
             loadOverlayContent={true}

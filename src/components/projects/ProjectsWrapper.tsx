@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Nav, Footer, ProjectComponents, BackgroundGrid } from "@/components";
 import { useProjectNavigation } from "@/hooks/useProjectNavigation";
 import { carouselTransition } from "@/animations/projectsPageAnimations";
-import { ProjectsPageResponse, Project } from "@/types/projects";
+import { Project } from "@/types/projects";
 
 const { ProjectBackground, ProjectContent, ProjectCard, NavigationButton } =
   ProjectComponents;
@@ -26,9 +26,9 @@ const { ProjectBackground, ProjectContent, ProjectCard, NavigationButton } =
  * - Navigation buttons at bottom
  */
 export default function Projects(props: {
-  projectsData: ProjectsPageResponse;
+  projectsData: Project[];
 }) {
-  const projectsData = props.projectsData.projects;
+  const projectsData = props.projectsData;
 
   if (projectsData.length == 0) {
     return (

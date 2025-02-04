@@ -27,5 +27,4 @@ export const getCachedProjectsData = unstable_cache(
     }
   },
   ["projects"], // Cache tag used for revalidation
-  { revalidate: 3600 } // Revalidate cache every 1 hour
 );
