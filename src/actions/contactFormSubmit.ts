@@ -31,6 +31,7 @@ export async function contactFormSubmit(
       errors: result.error.flatten().fieldErrors, // Flatten errors for easier access
     };
   }
+
   // Extract validated data
   const { name, email, subject, message, interest } = result.data;
   try {
@@ -38,14 +39,14 @@ export async function contactFormSubmit(
     const transporter = nodemailer.createTransport({
       service: "gmail", // Use Gmail as the email service
       auth: {
-        user: "gdg2k25@gmail.com",
+        user: process.env.EMAIL_ID,
         pass: process.env.EMAIL_PASSWORD,
       },
     });
     // Define the email content and recipient
     const mailOptions = {
       from: `${email}`,
-      to: "gdg2k25@gmail.com",
+      to: "gdgfisk2k25@gmail.com",
       subject: `New Contact Form Submission: ${subject}`,
       text: `
         Name: ${name}
@@ -56,13 +57,11 @@ export async function contactFormSubmit(
     };
     // Send the email
     await transporter.sendMail(mailOptions);
-    console.log("Email sent successfully"); // Log success message
   } catch (err: unknown) {
     // Handle email sending errors
-    console.error("Error sending email:", err); // Log the error for debugging
     return {
       errors: {
-        _form: [err instanceof Error ? err.message : "Unknown error occurred"],
+        _form: [],
       },
     };
   }

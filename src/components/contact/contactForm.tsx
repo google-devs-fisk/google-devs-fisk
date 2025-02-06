@@ -1,16 +1,44 @@
 "use client";
 
-import { useActionState } from "react";
-import Image from "next/legacy/image";
+import { useEffect, useActionState } from "react";
+import Image from "next/image";
 import InputField from "./inputField";
 import CHeader from "./cardHeader";
 import * as actions from "@/actions";
+import ToastNotification from "./toast";
 
 export default function ContactForm() {
   // Use useActionState to bind the form to the server action
   const [formState, action] = useActionState(actions.contactFormSubmit, {
     errors: {},
   });
+
+  // Initialize toast notifications
+  const successToast = ToastNotification({
+    message: "Message Sent",
+    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/41716a93c1bd0273a257ff096057b7833fc51da3a164a8fa5848d97a4aa736f6?placeholderIfAbsent=true&apiKey=8a41729a6a6e4864bd4f2cf5dd70fa62",
+  });
+
+  const errorToast = ToastNotification({
+    message: "Failed To Send Message",
+    icon: "https://img.icons8.com/?size=100&id=46&format=png&color=FFFFFF",
+  });
+
+  // // Watch for formState changes to show appropriate toasts
+  useEffect(() => {
+    // If there are no errors, it means the submission was successful
+    if (formState && Object.keys(formState.errors).length === 0) {
+      successToast.showToast();
+
+      // Clear form on success
+      const form = document.querySelector("form") as HTMLFormElement;
+      if (form) form.reset();
+    }
+    // Show error toast if there are form-level errors
+    else if (formState?.errors?._form) {
+      errorToast.showToast();
+    }
+  }, [formState]);
 
   const handleInterestSelect = (selectedInterest: string) => {
     // Update the hidden input in the form with the selected interest
@@ -82,13 +110,6 @@ export default function ContactForm() {
           errorMessage={formState.errors.message?.join(", ")}
         />
       </div>
-
-      {/* Form Errors */}
-      {formState.errors._form && (
-        <div className="text-tiny text-danger rounded p-2 bg-red border border-red-300">
-          {formState.errors._form?.join(", ")}
-        </div>
-      )}
 
       {/* Submit Button */}
       <button

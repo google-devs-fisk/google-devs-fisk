@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import "./globals.css";
 import Providers from "@/app/providers";
+import { Toaster } from "sonner";
 
 // Use Figtree font
 const figtree = Figtree({ subsets: ["latin"] });
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body>
         <div className={`container mx-auto min-w-full ${figtree.className}`}>
           <Providers>{children}</Providers>
+          <Toaster position="top-right" richColors />
         </div>
       </body>
     </html>
