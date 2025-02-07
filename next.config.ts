@@ -7,6 +7,11 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "cdn.builder.io",
       },
+      {
+        protocol: "https",
+        hostname: "storage.googleapis.com",
+        pathname: "/**",
+      },
     ],
     dangerouslyAllowSVG: true, // Allow SVG images
   },

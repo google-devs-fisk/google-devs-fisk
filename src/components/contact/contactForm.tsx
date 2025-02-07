@@ -1,16 +1,53 @@
 "use client";
 
-import { useActionState } from "react";
+import { useEffect, useActionState } from "react";
 import Image from "next/image";
 import InputField from "./inputField";
 import CHeader from "./cardHeader";
 import * as actions from "@/actions";
+import ToastNotification from "./toast";
 
 export default function ContactForm() {
   // Use useActionState to bind the form to the server action
   const [formState, action] = useActionState(actions.contactFormSubmit, {
     errors: {},
   });
+
+  // Initialize toast notifications
+  const successToast = ToastNotification({
+    message: (
+      <>
+        ✅ Your message has been successfully sent! 🎉 <br />
+        We’ll get back to you as soon as possible.
+      </>
+    ),
+  });
+
+  const errorToast = ToastNotification({
+    message: (
+      <>
+        ⚠️ Failed to send your message. ❌ <br />
+        Please check your internet connection. <br />
+        Ensure all required fields are filled.
+      </>
+    ),
+  });
+
+  // // Watch for formState changes to show appropriate toasts
+  useEffect(() => {
+    // If there are no errors, it means the submission was successful
+    if (formState && Object.keys(formState.errors).length === 0) {
+      successToast.showToast();
+
+      // Clear form on success
+      const form = document.querySelector("form") as HTMLFormElement;
+      if (form) form.reset();
+    }
+    // Show error toast if there are form-level errors
+    else if (formState?.errors?._form) {
+      errorToast.showToast();
+    }
+  }, [formState]);
 
   const handleInterestSelect = (selectedInterest: string) => {
     // Update the hidden input in the form with the selected interest
@@ -82,13 +119,6 @@ export default function ContactForm() {
           errorMessage={formState.errors.message?.join(", ")}
         />
       </div>
-
-      {/* Form Errors */}
-      {formState.errors._form && (
-        <div className="text-tiny text-danger rounded p-2 bg-red border border-red-300">
-          {formState.errors._form?.join(", ")}
-        </div>
-      )}
 
       {/* Submit Button */}
       <button

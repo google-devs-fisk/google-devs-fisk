@@ -1,24 +1,26 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { ImageComponentProps } from '@/types/common';
+import React from "react";
+import Image from "next/legacy/image";
+import { ImageComponentProps } from "@/types/common";
 
 const ImageComponent: React.FC<ImageComponentProps> = ({
   src,
-  alt = 'Image',
+  alt = "Image",
   minHeight = 400, // Default minimum height
   maxWidth, // Optional maximum width
   rounded = false, // Default to no rounded borders
   opacity = 1, // Default opacity is fully visible
-  className = '', // Optional additional classes
+  className = "", // Optional additional classes
 }) => {
   return (
     <div
-      className={`relative overflow-hidden ${rounded ? 'rounded-3xl' : ''} ${className}`}
+      className={`relative overflow-hidden ${
+        rounded ? "rounded-3xl" : ""
+      } ${className}`}
       style={{
         minHeight: `${minHeight}px`,
-        maxWidth: maxWidth ? `${maxWidth}px` : '100%',
+        maxWidth: maxWidth ? `${maxWidth}px` : "100%",
       }}
     >
       <Image

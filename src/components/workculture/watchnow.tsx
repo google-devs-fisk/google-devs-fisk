@@ -1,12 +1,16 @@
-import { VideoComponent } from "@/components"
+import { VideoComponent } from "@/components";
 import { BtnProps, VideoContent } from "@/types/common";
 
 interface WatchNowComponentProps {
-  culturePageVideo: VideoContent
+  culturePageVideo: VideoContent;
+  watchNowContent?: VideoContent;
 }
-const Watchnow = ({ culturePageVideo }: WatchNowComponentProps) => {
+const Watchnow = ({
+  culturePageVideo,
+  watchNowContent,
+}: WatchNowComponentProps) => {
   const btnInfo: BtnProps = {
-    text: 'Watch Now',
+    text: "Watch Now",
     link: culturePageVideo.videoUrl,
   };
   return (
@@ -15,7 +19,11 @@ const Watchnow = ({ culturePageVideo }: WatchNowComponentProps) => {
       <div className="absolute bottom right-10 w-[400px] h-[600px] bg-gradient-to-r from-[#dc00d3] to-[#46c6fd] rounded-full filter blur-5xl opacity-70"></div>
       {/* Bottom left blur */}
       <div className="absolute inset-0 top-[250px] -left-[200px] w-[700px] h-[700px] bg-gradient-to-r from-[#dc00d3] to-[#46c6fd] rounded-full filter blur-5xl opacity-70"></div>
-      <VideoComponent videoContent={culturePageVideo} buttonInfo={btnInfo} spanVariant={1} />
+      <VideoComponent
+        videoContent={watchNowContent ? watchNowContent : culturePageVideo}
+        buttonInfo={btnInfo}
+        spanVariant={1}
+      />
     </div>
   );
 };

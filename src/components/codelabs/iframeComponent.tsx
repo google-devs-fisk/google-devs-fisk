@@ -18,13 +18,12 @@ const IframeComponent = ({
       <iframe
         src={src}
         id={id}
-        className="absolute inset-0 w-full h-full rounded-3xl max-h-[300px] sm:max-h-[500px] lg:max-h-[70vh]"
+        className="absolute inset-0 w-full h-full rounded-3xl max-h-[300px] sm:max-h-[500px] lg:max-h-[70vh] overflow-y-scroll"
         style={{ border: "none" }}
         loading="lazy"
         sandbox="allow-scripts"
         title="Embedded Content"
       />
-      <div className={`absolute ${width} ${height} w-full h-full max-h-[300px]sm:max-h-[500px] lg:max-h-[70vh] rounded-3xl secondary-image-border flex justify-center items-center overflow-hidden`}></div>
     </div>
   );
 };

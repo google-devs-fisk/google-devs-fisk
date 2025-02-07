@@ -1,53 +1,92 @@
-import React from 'react'
-import Image from 'next/image';
+"use client";
+
+import React from "react";
+import Image from "next/legacy/image";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { HeadingWithSpan, BottomWave} from "@/components";
+import FocusClickMeOverlay from "./focusClickMeOverlay";
+
 const Focus = () => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-    const domains = [
-        {
-            'src':'/images/placeholders/work-culture-placeholder2.png',
-            'title': 'Full Stack Web Development',
-            'width': 450,
-            'margint': 0
-        },
-        {
-            'src':'/images/placeholders/work-culture-placeholder3.jpg',
-            'title': 'Machine Learning',
-            'width': 300,
-            'margint': 3
-        },
-        {
-            'src':'/images/placeholders/work-culture-placeholder3.jpg',
-            'title': 'Android and iOS Development',
-            'width': 450,
-            'margint': 0
-        },
-        
+  const domains = [
+    {
+      src: "https://storage.googleapis.com/gdg-fisk-assets/images/web-dev-image.png",
+      title: "Full Stack\nWeb Development",
+      width: 400,
+      height: 400,
+    },
+    {
+      src: "https://storage.googleapis.com/gdg-fisk-assets/images/mobile-app-dev.jpg",
+      title: "Android and iOS\nDevelopment",
+      width: 300,
+      height: 300,
+    },
+    {
+      src: "https://storage.googleapis.com/gdg-fisk-assets/images/ml-image.png",
+      title: "Machine Learning",
+      width: 400,
+      height: 400,
+    },
+  ];
 
-    ];
   return (
-    <div className='flex flex-col'>
-        <div className='flex flex-row justify-end mr-20 pr-3 mb-10 mt-10'>
-            <h1 className='primary-heading text-6xl font-bold mb-5 mr-3'>Key Focus</h1>
-            <h1 className='text-6xl font-bold mb-5'>Domains</h1>
+    <div ref={ref} className="relative my-20 flex flex-col justify-center items-center px-4">
+      {/* Heading */}
+      <motion.div
+        initial={{ y: 50, opacity: 0 }}
+        animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="flex flex-col items-center max-w-7xl w-full"
+      >
+        <div className="mb-20">
+          <HeadingWithSpan heading="Key Focus Domains" />
         </div>
 
-        <div className='flex justify-center'>
-            {domains.map((domain, index) => (
-                <div key={index} className={`flex flex-col m-2 p-2`}>
-                    <Image
-                     src={domain.src} 
-                     alt={domain.title} 
-                     width={domain.width}
-                     height={200}
-                     className={`rounded-2xl border-2 border-blue-700 mt-${domain.margint} pt-${domain.margint}`}
-                     />
-                     
-                    <h2 className='text-3xl mt-2'>{domain.title}</h2>
+        {/* Motion Grid */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full"
+          initial={{ y: 50, opacity: 0 }}
+          animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+        >
+          {domains.map((domain, index) => (
+            <motion.div
+              key={index}
+              className="relative flex flex-col items-center w-full"
+              initial={{ y: 50, opacity: 0 }}
+              animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.2 }}
+            >
+              {/* Card Content */}
+              <div className="relative group">
+                <div className="absolute -inset-1 rounded-[2rem] bg-gradient-to-r from-[#46c6fd] to-[#dc00d3] opacity-75 blur-sm group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                <div className="relative rounded-[2rem] bg-[#1E1B26] p-1 w-full">
+                  <Image
+                    src={domain.src}
+                    alt={domain.title}
+                    width={domain.width}
+                    height={domain.height}
+                    className="rounded-[1.8rem] aspect-square object-cover w-full"
+                  />
                 </div>
-            ))}
-        </div>
+                {/* Overlay Positioned on Top of Each Domain */}
+                <div className="absolute inset-0 flex justify-center items-center">
+                    <FocusClickMeOverlay />
+                </div>
+              </div>
+              <h2 className="secondary-color text-xl sm:text-2xl lg:text-3xl font-light leading-tight mt-6 whitespace-pre-line">
+                {domain.title}
+              </h2>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
+      <BottomWave />
     </div>
-  )
-}
+  );
+};
 
-export default Focus
+export default Focus;

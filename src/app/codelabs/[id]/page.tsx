@@ -1,10 +1,13 @@
-import { CodelabInfoCardComponent, Nav, Footer, LoadingSkeleton } from "@/components";
-import { Suspense } from "react";
+import {
+  CodelabInfoCardComponent,
+  Nav,
+  Footer,
+} from "@/components";
 import { getCachedCodelabsData } from "@/actions";
 import { Codelab } from "@/types/codelabs";
 
 // Add revalidate to trigger incremental static regeneration (ISR)
-export const revalidate = 3600;  // Revalidate every 1 hour
+export const revalidate = 3600; // Revalidate every 1 hour
 
 interface CodelabInfoPageProps {
   params: Promise<{ id: string }>;
@@ -15,7 +18,9 @@ export default async function CodelabInfo({ params }: CodelabInfoPageProps) {
   const { id } = await params;
   // Fetch all codelabs to find the specific one by ID
   const codelabsPageResponse = await getCachedCodelabsData();
-  const codelab = codelabsPageResponse.codelabs.find((codelab: Codelab) => codelab.id === id);
+  const codelab = codelabsPageResponse.codelabs.find(
+    (codelab: Codelab) => codelab.id === id
+  );
   // If the codelab is not found
   if (!codelab) {
     return (
@@ -30,9 +35,7 @@ export default async function CodelabInfo({ params }: CodelabInfoPageProps) {
       <Nav />
       <div className="flex-1 overflow-y-auto scrollable-content pt-[10vh]">
         <div className="w-[80vw] mx-auto flex flex-col flex-wrap gap-[10vh] justify-center mb-20">
-          <Suspense fallback={<LoadingSkeleton />}>
-            <CodelabInfoCardComponent codelab={codelab} />
-          </Suspense>
+          <CodelabInfoCardComponent codelab={codelab} />
         </div>
         <Footer />
       </div>

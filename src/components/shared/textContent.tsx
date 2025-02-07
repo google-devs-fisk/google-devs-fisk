@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React from "react";
 import Btn from "./btn";
@@ -18,13 +18,19 @@ export default function TextContent({
 }: SectionContentProps) {
   return (
     <>
-      <div className="mb-20"><HeadingWithSpan heading={heading} /></div>
-      {paragraph && <p className="text-lg sm:text-xl secondary-color mb-20">{paragraph}</p>}
+      <div className="mb-20">
+        <HeadingWithSpan heading={heading} />
+      </div>
+      {paragraph && (
+        <p className="project-description text-xl md:text-2xl pb-8 mb-20 px-12 sm:px-0 ">
+          {paragraph}
+        </p>
+      )}
       {btnProps && (
-        <div className="mr-auto">
-            <Btn {...btnProps} />
+        <div className="mr-auto mb-10">
+          <Btn {...btnProps} />
         </div>
-       )}
+      )}
     </>
   );
 }

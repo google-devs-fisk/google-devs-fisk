@@ -1,4 +1,11 @@
-import { BgGrid, DepthBlur, Footer, Nav, ContactCard, ContactNewsletter } from "@/components";
+import {
+  BgGrid,
+  DepthBlur,
+  Footer,
+  Nav,
+  ContactCard,
+  ContactNewsletter,
+} from "@/components";
 import Image from "next/image";
 
 const Contact = () => {
@@ -48,7 +55,7 @@ const Contact = () => {
         <Footer />
       </div>
     </div>
-    );
+  );
 };
 
 export default Contact;

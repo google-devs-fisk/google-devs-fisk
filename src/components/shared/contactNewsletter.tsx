@@ -1,6 +1,7 @@
 "use client";
 
-import { NewsLetter, InputField } from "@/components";
+import { NewsLetter } from "@/components";
+import InputField from "@/components/contact/inputField";
 import { useActionState } from "react";
 import * as actions from "@/actions"; // Import server actions
 

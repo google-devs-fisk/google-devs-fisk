@@ -4,12 +4,16 @@ import { Button } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { BtnProps } from "@/types/common";
 
-export default function Btn({ text, link, variant, extra}: BtnProps) {
+export default function Btn({ text, link, variant, extra, newTab = false }: BtnProps) {
   const router = useRouter();
 
   const handlePress = () => {
     if (link) {
-      router.push(link); // Navigate to the provided link
+      if (newTab) {
+        window.open(link, "_blank", "noopener,noreferrer"); // Open in a new tab
+      } else {
+        router.push(link); // Navigate in the same tab
+      }
     }
   };
 
