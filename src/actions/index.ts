@@ -1,6 +1,6 @@
 // Form submission functions
-export { contactFormSubmit } from "./contactFormSubmit";
-export { subscriberFormSubmit } from "./subscriberFormSubmit";
+export { contactFormSubmit } from "./contact/contactFormSubmit";
+export { subscriberFormSubmit } from "./contact/subscriberFormSubmit";
 
 // Codelabs related functions
 export { fetchCodelabsPageData } from "./codelab/fetchCodelabsPageData";
