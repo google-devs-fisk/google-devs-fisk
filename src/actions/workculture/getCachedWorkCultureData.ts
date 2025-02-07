@@ -8,7 +8,7 @@ import { fetchWorkCulturePageData } from "./fetchWorkCulturePageData";
  *
  * This function retrieves work culture data using `fetchWorkCulturePageData()`,
  * caches the response using `unstable_cache`, and revalidates the cache
- * every 1 hour.
+ * every 1 day.
  *
  * @returns {Promise<CulturePageResponse>} The cached or freshly fetched work culture data.
  * @throws {Error} If fetching work culture data fails.
@@ -27,5 +27,5 @@ export const getCachedWorkCultureData = unstable_cache(
     }
   },
   ["culture"], // Cache tag used for revalidation
-  { revalidate: 3600 } // Revalidate cache every 1 hour
+  { revalidate: 86400 } // Revalidate cache every 1 day
 );

@@ -14,7 +14,6 @@ export { generateStaticProjectIdPaths } from "./projects/generateStaticProjectId
 
 export { fetchWorkCulturePageData } from "./workculture/fetchWorkCulturePageData";
 export { getCachedWorkCultureData } from "./workculture/getCachedWorkCultureData";
-export { generateStaticWorkCultureIdPaths } from "./workculture/generateStaticWorkCultureIdPaths";
 
 // Helper functions (utils)
 export {
