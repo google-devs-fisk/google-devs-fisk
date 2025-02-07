@@ -3,14 +3,22 @@ import { Firestore } from "@google-cloud/firestore";
 export function getFirestoreCloudClient(): Firestore {
   const projectId = process.env.GOOGLE_CLOUD_PROJECT;
   const clientEmail = process.env.GOOGLE_CLOUD_CLIENT_EMAIL;
-  const privateKey = process.env.GOOGLE_CLOUD_PRIVATE_KEY?.replace(/\\n/g, '\n'); // Handle potential escaped newlines
-  if (!projectId || !clientEmail || !privateKey) {
+  const rawPrivateKey = process.env.GOOGLE_CLOUD_PRIVATE_KEY;
+
+  console.log("GOOGLE_CLOUD_PROJECT:", process.env.GOOGLE_CLOUD_PROJECT);
+  console.log("GOOGLE_CLOUD_CLIENT_EMAIL:", process.env.GOOGLE_CLOUD_CLIENT_EMAIL);
+  console.log("GOOGLE_CLOUD_PRIVATE_KEY:", process.env.GOOGLE_CLOUD_PRIVATE_KEY ? "Exists" : "MISSING");
+
+  if (!projectId || !clientEmail || !rawPrivateKey) {
     // Provide more specific error messages
     if (!projectId) throw new Error("Missing GOOGLE_CLOUD_PROJECT");
     if (!clientEmail) throw new Error("Missing GOOGLE_CLOUD_CLIENT_EMAIL");
-    if (!privateKey) throw new Error("Missing GOOGLE_CLOUD_PRIVATE_KEY");
+    if (!rawPrivateKey) throw new Error("Missing GOOGLE_CLOUD_PRIVATE_KEY");
   }
+
   try {
+    // Construct the full PEM format inside the code
+    const privateKey = `-----BEGIN PRIVATE KEY-----\n${rawPrivateKey}\n-----END PRIVATE KEY-----\n`;
     const credentials = {
       client_email: clientEmail,
       private_key: privateKey,
