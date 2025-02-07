@@ -1,3 +1,5 @@
+"use server"
+
 import { Nav, Footer, TextSection, Landing, Focus, ContactNewsletter } from "@/components";
 import { BtnProps } from "@/types/common";
 import paths from "@/paths";

@@ -1,3 +1,5 @@
+"use server"
+
 import React from 'react';
 import { Nav, WatchNow, TeamStats, Hero } from '@/components'
 import { CulturePageResponse } from '@/types/culture';

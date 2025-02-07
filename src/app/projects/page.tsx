@@ -1,3 +1,5 @@
+"use server"
+
 import { getCachedProjectsData } from "@/actions/projects/getCachedProjectsData";
 import { ProjectsWrapper} from "@/components";
 

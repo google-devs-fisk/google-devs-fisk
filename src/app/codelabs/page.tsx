@@ -1,3 +1,5 @@
+"use server"
+
 import { CodelabsShowComponent, Nav, Footer } from "@/components";
 import { Codelab, CodelabsPageResponse } from "@/types/codelabs";
 import { getCachedCodelabsData } from "@/actions/codelab/getCachedCodelabsData";
