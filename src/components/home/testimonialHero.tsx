@@ -17,7 +17,7 @@ const TestimonialHero: React.FC<TestimonialHeroProps> = ({ testimonials }) => {
   const isInView = useInView(ref, { once: true, margin: "-10%" }); // Detects when element is visible
 
   return (
-    <div className="relative h-[80vh] flex flex-col justify-center items-center overflow-hidden">
+    <div className="relative h-[85vh] flex flex-col justify-center items-center overflow-hidden">
       {/* Testimonial Carousel - Scroll Animation */}
       <motion.div
         ref={ref}
