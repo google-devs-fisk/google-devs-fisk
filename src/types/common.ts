@@ -42,13 +42,6 @@ export interface Metric {
   goals?: Goal[];
 }
 
-export interface ProjectSummary {
-  id: string;
-  projectHeroImg: string;
-  projectTitle: string;
-  overview: Section;
-}
-
 /** These are component's element state props */
 
 export interface HeadingProps {
