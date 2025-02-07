@@ -12,8 +12,13 @@ export { fetchProjectsPageData } from "./projects/fetchProjectsPageData";
 export { getCachedProjectsData } from "./projects/getCachedProjectsData";
 export { generateStaticProjectIdPaths } from "./projects/generateStaticProjectIdPaths";
 
+// Work culture related functions
 export { fetchWorkCulturePageData } from "./workculture/fetchWorkCulturePageData";
 export { getCachedWorkCultureData } from "./workculture/getCachedWorkCultureData";
+
+// Home related functions
+export { fetchHomePageData } from "./home/fetchHomePageData";
+export { getCachedHomePageData } from "./home/getCachedHomePageData";
 
 // Helper functions (utils)
 export {
