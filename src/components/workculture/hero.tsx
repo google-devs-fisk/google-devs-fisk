@@ -1,11 +1,11 @@
 'use client'
 import React from "react";
-import { ImageComponent, FloatingIcons, HeadingWithSpan } from "@/components";
-import { motion, AnimatePresence } from "framer-motion";
+import { ImageComponent, FloatingIcons } from "@/components";
+import { motion } from "framer-motion";
 import { useInViewAnimation } from "@/hooks/useInViewAnimation";
+import HeadingToggle from "./headingToggle";
 
 const Hero = () => {
-  const heading = "At GDG, we strive to build a community where developers can find a safe space, free from judgment, to collaborate openly. We want members to feel confident to converse, laugh, and code together, making the team feel like home."
   const { ref, isInView } = useInViewAnimation({ margin: "-20%", once: true });
 
   const contentVariants = {
@@ -35,7 +35,7 @@ const Hero = () => {
         animate={isInView ? "visible" : "hidden"}
         className="absolute justify-center z-20 p-10 lg:p-20 top-[50%] translate-x-[-50%] translate-y-[-50%] w-full"
       >
-        <HeadingWithSpan heading={heading} />
+        <HeadingToggle />
       </motion.div>
 
       <div className="relative w-full h-[100vh] max-h-screen aspect-[16/9] overflow-hidden">
@@ -56,9 +56,9 @@ const Hero = () => {
         {/* Background Image */}
         <ImageComponent
           alt="collaborative learning"
-          src="/images/work-culture-hero.jpg"
+          src="/images/work-culture-page-hero.jpeg"
           minHeight={300}
-          opacity={0.2}
+          opacity={0.35}
           className="absolute h-full"
         />
       </div>
