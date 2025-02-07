@@ -32,6 +32,8 @@ export const fetchProjectsPageData =
       // Extract data from Firestore document
       const data = docSnapshot.data();
 
+      console.log("Fetched data:", data); // Debugging log for fetched data
+      
       // Parse project list (ensure it's an array)
       const projects: Project[] = Array.isArray(data?.projects)
         ? data.projects

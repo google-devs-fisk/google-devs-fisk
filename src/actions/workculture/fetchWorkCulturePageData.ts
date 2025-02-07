@@ -33,6 +33,8 @@ export const fetchWorkCulturePageData =
       // Extract data from Firestore document
       const data = docSnapshot.data();
 
+      console.log("Fetched data:", data); // Debugging log for fetched data
+
       // Parse testimonial list (ensure it's an array)
       const testimonials: Testimonial[] = Array.isArray(data?.testimonials)
         ? data.testimonials
