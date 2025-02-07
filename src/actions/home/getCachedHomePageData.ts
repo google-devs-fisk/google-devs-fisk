@@ -27,5 +27,5 @@ export const getCachedHomePageData = unstable_cache(
     }
   },
   ["home"],
-  { revalidate: 86400 }
+  { revalidate: 86400 } // Revalidate cache every 1 day
 );

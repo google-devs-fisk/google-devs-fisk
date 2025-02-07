@@ -40,4 +40,5 @@ export const getCachedCodelabsData = unstable_cache(
     }
   },
   ['codelabs'], // Cache tag for invalidation purposes
+  { revalidate: 86400 } // Revalidate cache every 1 day
 );
