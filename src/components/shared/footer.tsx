@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Link, Divider } from "@nextui-org/react";
+import { Link } from "@nextui-org/react";
 import paths from "@/paths";
 import { FooterProps } from "@/types/common";
 
@@ -11,7 +11,7 @@ export default function Footer({ hideUpperFooter = false }: FooterProps) {
       {/* Upper Footer */}
       {!hideUpperFooter && <div>
         {/* Navigation Links */}
-        <div className="flex flex-wrap justify-evenly gap-4 mb-4 px-4">
+        <div className="flex flex-wrap justify-evenly gap-4 mb-6 px-4">
           <Link href={paths.home()} className="hover:underline">
             Home
           </Link>
@@ -28,8 +28,6 @@ export default function Footer({ hideUpperFooter = false }: FooterProps) {
             Contact
           </Link>
         </div>
-        {/* Divider */}
-        <Divider className="mx-auto mb-4" />
       </div>}
 
       {/* Sub Footer */}
