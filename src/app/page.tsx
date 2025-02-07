@@ -1,9 +1,11 @@
-import { Suspense } from "react";
-import { Nav, Footer, TextSection, ImageComponent, Landing, Focus, ContactNewsletter, LoadingSkeleton } from "@/components";
+import { Nav, Footer, TextSection, Landing, Focus, ContactNewsletter } from "@/components";
 import { BtnProps } from "@/types/common";
 import paths from "@/paths";
+import TestimonialHero from "@/components/home/testimonialHero";
+import { getCachedHomePageData } from "@/actions";
+import { HomePageResponse } from "@/types/home";
 
-// The mission info
+// The is mission info
 const missionStatement = "Empowering Next-Gen Coders to collaborate on real world projects";
 const missionPara = "As CS students, we often come up with amazing ideas for our seminar projects. However, why is it that even with the most outrageous ideas and endless initial enthusiasm, we still end up delivering a minimal outcome?";
 const missionBtnInfo: BtnProps = {
@@ -12,7 +14,7 @@ const missionBtnInfo: BtnProps = {
   newTab: true
 };
 
-// The team's values
+// The is team's values
 const valueStatement = "Because We Value Growth";
 const valuePara = "A better developer is able to apply the documentation that comes with new software. At GDG, we believe in writing down everything we do, using codelabs and Google docs. This helps you learn and write good code.";
 const valueBtnInfo: BtnProps = {
@@ -20,27 +22,26 @@ const valueBtnInfo: BtnProps = {
   link: paths.workCulture()
 };
 
-export default function Home() {
+export default async function Home() {
+  const homePageData: HomePageResponse = await getCachedHomePageData();
   return (
     <div className="min-h-screen flex flex-col relative">
       <Nav />
         <main className="absolute w-full overflow-hidden">
-          <Suspense fallback={<LoadingSkeleton />}>
-            <div className="mb-10">
-              <Landing/>
-            </div>
-          </Suspense>
+          <div className="mb-10">
+            <Landing introUrl={homePageData.homeVideoUrl} />
+          </div>
           <div className="my-20"><TextSection btnLink={missionBtnInfo} paragraph={missionPara} heading={missionStatement} flipLayout={true} imgURL="https://storage.googleapis.com/gdg-fisk-assets/images/empowering-next-gen.png" /></div>
-          {/* <div className="mb-10"><Projects/></div> */}
-          <div className="my-20"><Focus/></div>
-          <div className="my-20"><TextSection btnLink={valueBtnInfo} paragraph={valuePara} heading={valueStatement} flipLayout={false} imgURL="https://storage.googleapis.com/gdg-fisk-assets/images/home-placeholder9.png" loadOverlayContent={true} /></div>
-          {/* <div className="my-20"><TextSection paragraph={para} heading="This can be used as a paragraph with no image" flipLayout={true} /></div> */}
-          {/* <div className="my-20"><TextSection heading="This can be used as an image with no paragraph" flipLayout={false} imgURL="/images/placeholders/home-placeholder9.png"/></div>
-          <div className="my-20"><TextSection heading="This can be used as a heading" /></div> */}
+          <Focus />
+          <div className="relative">
+            <div className="my-20"><TextSection btnLink={valueBtnInfo} paragraph={valuePara} heading={valueStatement} flipLayout={false} imgURL="https://storage.googleapis.com/gdg-fisk-assets/images/homepage-culture.png" /></div>
+          </div>
           <div className="my-20">
-            <ImageComponent src="https://storage.googleapis.com/gdg-fisk-assets/images/home-placeholder7.jpg" minHeight={600} opacity={0.6} />
-            </div>
-          <ContactNewsletter/>
+            <TestimonialHero testimonials={homePageData.testimonials} />
+          </div>
+          <div className="my-20">
+            <ContactNewsletter/>
+          </div>
           <Footer />
         </main>
     </div>

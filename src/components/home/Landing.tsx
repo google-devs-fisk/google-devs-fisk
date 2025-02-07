@@ -10,12 +10,15 @@ import { BtnProps } from "@/types/common";
 import { useInViewAnimation } from "@/hooks/useInViewAnimation";
 import { contentAnimation, imageAnimation } from "@/animations/animations";
 
-const Landing = () => {
-  // TODO: This URL is test value and should be removed.
-  // The URL should be fetched from the HomePageResponse.
+interface LandingProps {
+  introUrl: string;
+}
+
+const Landing: React.FC<LandingProps> = ({ introUrl }) => {
   const buttonInfo: BtnProps = {
     text: "Play now ▶",
-    link: "/",
+    link: introUrl,
+    newTab: true,
   };
   const { ref, isInView } = useInViewAnimation({ margin: "-20%", once: true });
   const animationDelay = 0.4; // Base delay for the animations
