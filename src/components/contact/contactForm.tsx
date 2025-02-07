@@ -15,13 +15,22 @@ export default function ContactForm() {
 
   // Initialize toast notifications
   const successToast = ToastNotification({
-    message: "Message Sent",
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/41716a93c1bd0273a257ff096057b7833fc51da3a164a8fa5848d97a4aa736f6?placeholderIfAbsent=true&apiKey=8a41729a6a6e4864bd4f2cf5dd70fa62",
+    message: (
+      <>
+        ✅ Your message has been successfully sent! 🎉 <br />
+        We’ll get back to you as soon as possible.
+      </>
+    ),
   });
 
   const errorToast = ToastNotification({
-    message: "Failed To Send Message",
-    icon: "https://img.icons8.com/?size=100&id=46&format=png&color=FFFFFF",
+    message: (
+      <>
+        ⚠️ Failed to send your message. ❌ <br />
+        Please check your internet connection. <br />
+        Ensure all required fields are filled.
+      </>
+    ),
   });
 
   // // Watch for formState changes to show appropriate toasts

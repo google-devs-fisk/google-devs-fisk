@@ -1,23 +1,22 @@
 "use client";
 import { toast } from "sonner";
+import { ReactNode } from "react"; // Import ReactNode for JSX support
 
 interface ToastNotificationProps {
-  message: string; // Message to dispaly
-  icon: string;
+  message: ReactNode; // Now supports multi-line JSX messages
   timer?: number; // Optional timer prop to control toast visibility duration
   border?: string;
 }
 
 const ToastNotification = ({
   message,
-  timer = 4000,
-  icon,
+  timer = 7000,
   border,
 }: ToastNotificationProps) => {
   // Show the toast notification
   const showToast = () => {
     toast.custom(
-      (t) => (
+      () => (
         <div
           style={{
             background: "linear-gradient(to right, #dc00d3, #46c6fd)",
@@ -28,14 +27,14 @@ const ToastNotification = ({
             display: "flex",
             alignItems: "center",
             border,
+            flexDirection: "column", // Ensure multiple lines align properly
+            textAlign: "left",
           }}
         >
-          <img
-            src={icon}
-            alt="icon"
-            style={{ width: "20px", height: "20px", marginRight: "8px" }}
-          />
-          <span>{message}</span>
+          <span style={{ fontSize: "1.75rem", fontWeight: "bold", marginBottom: "4px" }}>
+            Message Status
+          </span>
+          <span style={{ fontSize: "1.1rem", lineHeight: "2" }}>{message}</span>
         </div>
       ),
       {
