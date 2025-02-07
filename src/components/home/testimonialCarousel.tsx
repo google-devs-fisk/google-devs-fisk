@@ -52,7 +52,7 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: Testimonial[] }) 
 
               {/* Testimonial Text */}
               <p className="mt-6 text-gray-700 dark:text-gray-300 italic text-lg font-light leading-relaxed">
-                "{testimonial.content}"
+                {testimonial.content ? `"${testimonial.content}"` : "No testimonial available."}
               </p>
 
               {/* Glass Effect Background */}
