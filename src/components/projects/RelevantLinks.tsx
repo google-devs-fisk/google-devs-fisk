@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { HeadingWithSpan, KeySpan } from "@/components";
 import { RelevantLink } from "@/types/projects";
 import Link from "next/link";
-import { Divider } from "@nextui-org/react";
 
 const RelevantLinks = ({ relevantLinks }: { relevantLinks: RelevantLink[] }) => {
   return (
@@ -15,7 +14,6 @@ const RelevantLinks = ({ relevantLinks }: { relevantLinks: RelevantLink[] }) => 
       />
       {/* Adjusted Divider for full width */}
       <div className="w-full my-5">
-        <Divider />
       </div>
       {/* Relevant Links */}
       <div className="flex flex-wrap gap-4 justify-around mb-[5vh]">
