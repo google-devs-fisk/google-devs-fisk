@@ -1,4 +1,4 @@
-"use server"
+export const revalidate = 86400; // Revalidate every 1 day
 
 import React from 'react';
 import { Nav, WatchNow, TeamStats, Hero } from '@/components'

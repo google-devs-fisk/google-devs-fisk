@@ -1,4 +1,4 @@
-"use server"
+export const revalidate = 86400; // Revalidate every 1 day
 
 import { Nav, Footer, TextSection, Landing, Focus, ContactNewsletter } from "@/components";
 import { BtnProps } from "@/types/common";
