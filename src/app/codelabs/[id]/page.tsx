@@ -7,7 +7,15 @@ import { getCachedCodelabsData } from "@/actions";
 import { Codelab } from "@/types/codelabs";
 
 // Add revalidate to trigger incremental static regeneration (ISR)
-export const revalidate = 3600; // Revalidate every 1 hour
+export const revalidate = 86400; // Revalidate every 1 day
+
+// Ensure Next.js pre-builds dynamic routes at build time
+export async function generateStaticParams() {
+  const codelabsPageResponse = await getCachedCodelabsData();
+  return codelabsPageResponse.codelabs.map((codelab) => ({
+    id: codelab.id,
+  }));
+}
 
 interface CodelabInfoPageProps {
   params: Promise<{ id: string }>;

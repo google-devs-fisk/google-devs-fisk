@@ -7,8 +7,16 @@ import { ProjectInfoWrapper } from "@/components";
   it renders a fallback UI indicating that the project was not found.
 */
 
-export const revalidate = 3600; // Revalidate every 1 hour
+// Add revalidate to trigger incremental static regeneration (ISR)
+export const revalidate = 86400; // Revalidate every 1 day
 
+// Ensure Next.js pre-builds dynamic routes at build time
+export async function generateStaticParams() {
+  const projectsPageResponse = await getCachedProjectsData();
+  return projectsPageResponse.projects.map((project) => ({
+    id: project.id,
+  }));
+}
 interface ProjectInfoPageProps {
   params: Promise<{ id: string }>;
 }
