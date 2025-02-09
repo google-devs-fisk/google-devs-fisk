@@ -90,6 +90,7 @@ export interface TextSectionProps {
 export interface KeySpanProps {
   genre: string;
   variant?: number;
+  truncateGenreSmall?: boolean;
 }
 export interface VideoComponentProps {
   videoContent: VideoContent;

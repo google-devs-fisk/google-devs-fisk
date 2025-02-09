@@ -49,7 +49,7 @@ const CodelabsShowComponent: React.FC<{ codelab: Codelab }> = ({ codelab }) => {
 
       {/* Content Section */}
       <motion.div
-        className="p-4 flex flex-col w-[75%] justify-center items-center xl:w-1/2"
+        className="p-8 flex flex-col w-full justify-center items-center xl:w-1/2"
         variants={contentAnimation(animationDelay)}
       >
         <p className="font-semibold mb-10 lg:ml-auto">Last Modified: {releasedDate}</p>
@@ -61,14 +61,21 @@ const CodelabsShowComponent: React.FC<{ codelab: Codelab }> = ({ codelab }) => {
         </div>
         {/* Genres */}
         <motion.div
-          className="flex-wrap gap-2 flex"
+          className="flex flex-wrap gap-2 justify-center items-center"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"} // Trigger only when in view
           variants={staggeredAnimation(animationDelay).container}
         >
           {keyLearnings.map((learning, index) => (
             <motion.div className="m-2" key={index} variants={staggeredAnimation(animationDelay).item}>
-              <KeySpan genre={getGenre(learning)} variant={index % 2 + 1} />
+              {/* Shown on small screens */}
+              <span className="block sm:hidden">
+                <KeySpan genre={getGenre(learning)} variant={index % 2 + 1} truncateGenreSmall={true} />
+              </span>
+              {/* Shown on larger screens */}
+              <span className="hidden sm:block mx-auto">
+                <KeySpan genre={getGenre(learning)} variant={index % 2 + 1} />
+              </span>
             </motion.div>
           ))}
         </motion.div>
