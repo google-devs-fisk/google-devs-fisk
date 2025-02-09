@@ -20,6 +20,17 @@ import {
   ProjectBackgroundProps,
 } from "@/types/projects";
 
+const truncateDescription = (description: string, level: 1 | 2 | 3): string => {
+  const wordLimits = { 1: 25, 2: 40, 3: 50 };
+  const limit = wordLimits[level] || 25; // Default to 25 if invalid level
+  const words = description.split(" ");
+
+  if (words.length > limit) {
+    return `${words.slice(0, limit - 1).join(" ")} ... ${words[words.length - 1]}`;
+  }
+  return description;
+};
+
 /**
  * ProjectBackground Component
  * Renders an animated full-screen background image with overlay for projects
@@ -53,8 +64,8 @@ export const ProjectBackground = ({ project }: ProjectBackgroundProps) => (
  * @param {Project} props.project - Project data containing title and description
  */
 export const ProjectContent = ({ project }: ProjectContentProps) => {
-  const description =
-    project.overview?.textContents?.[0]?.content ?? "No description available";
+  const rawDescription = project.overview?.textContents?.[0]?.content ?? "No description available";
+  const description = truncateDescription(rawDescription, 1); // Change to 2 or 3 as needed
 
   return (
     <motion.div
@@ -64,11 +75,13 @@ export const ProjectContent = ({ project }: ProjectContentProps) => {
       animate={slideUpFadeIn.animate}
       transition={slideUpFadeIn.transition}
     >
-      <h2 className="project-title text-5xl md:text-7xl font-bold py-8">
+      <h2 className="project-title text-3xl md:text-7xl font-bold py-8 px-2">
         {project.projectTitle}
       </h2>
       <p className="project-description text-xl md:text-2xl pb-8 leading-relaxed">
-        {description}
+        <span className="sm:inline md:hidden xl:hidden">{truncateDescription(description, 1)}</span>
+        <span className="hidden md:inline xl:hidden">{truncateDescription(description, 2)}</span>
+        <span className="hidden xl:inline">{truncateDescription(description, 3)}</span>
       </p>
       <Btn text="See Details" link={`/projects/${project.id}`} />
     </motion.div>
