@@ -33,7 +33,7 @@ const Focus = () => {
   ];
 
   return (
-    <div ref={ref} className="relative my-20 flex flex-col justify-center items-center px-4">
+    <div ref={ref} className="relative flex flex-col justify-center items-center px-4">
       {/* Heading */}
       <motion.div
         initial={{ y: 50, opacity: 0 }}
@@ -77,7 +77,7 @@ const Focus = () => {
                     <FocusClickMeOverlay />
                 </div>
               </div>
-              <h2 className="secondary-color text-xl sm:text-2xl lg:text-3xl font-light leading-tight mt-6 whitespace-pre-line">
+              <h2 className="secondary-color text-xl sm:text-2xl lg:text-3xl font-medium mt-6 whitespace-pre-line py-6 text-center">
                 {domain.title}
               </h2>
             </motion.div>

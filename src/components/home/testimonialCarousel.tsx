@@ -9,9 +9,17 @@ import "swiper/css/pagination";
 import { HeadingWithSpan } from "@/components";
 import { Testimonial } from "@/types/common";
 
+const truncateTestimonialContent = (content: string): string => {
+  const words = content.split(" ");
+  if (words.length > 25) {
+    return `${words.slice(0, 24).join(" ")} ... ${words[words.length - 1]}`;
+  }
+  return content;
+};
+
 const TestimonialCarousel = ({ testimonials }: { testimonials: Testimonial[] }) => {
   return (
-    <div className="max-w-6xl mx-auto py-16 relative">
+    <div className="max-w-6xl mx-auto relative">
       {/* Section Heading - Fully Centered */}
       <div className="text-center mb-[70px]">
         <HeadingWithSpan heading="What Our Members Say" />
@@ -52,7 +60,7 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: Testimonial[] }) 
 
               {/* Testimonial Text */}
               <p className="mt-6 text-gray-700 dark:text-gray-300 italic text-lg font-light leading-relaxed">
-                {testimonial.content ? `"${testimonial.content}"` : "No testimonial available."}
+                {testimonial.content ? `"${truncateTestimonialContent(testimonial.content)}"` : "No testimonial available."}
               </p>
 
               {/* Glass Effect Background */}

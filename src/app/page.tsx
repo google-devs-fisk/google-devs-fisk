@@ -30,18 +30,20 @@ export default async function Home() {
     <div className="min-h-screen flex flex-col relative">
       <Nav />
         <main className="absolute w-full overflow-hidden">
-          <div className="mb-10">
-            <Landing introUrl={homePageData.homeVideoUrl} />
+          <Landing introUrl={homePageData.homeVideoUrl} />
+          <div className="my-10">
+            <TextSection btnLink={missionBtnInfo} paragraph={missionPara} heading={missionStatement} flipLayout={true} imgURL="https://storage.googleapis.com/gdg-fisk-assets/images/empowering-next-gen.png" />
           </div>
-          <div className="my-20"><TextSection btnLink={missionBtnInfo} paragraph={missionPara} heading={missionStatement} flipLayout={true} imgURL="https://storage.googleapis.com/gdg-fisk-assets/images/empowering-next-gen.png" /></div>
-          <Focus />
-          <div className="relative">
-            <div className="my-20"><TextSection btnLink={valueBtnInfo} paragraph={valuePara} heading={valueStatement} flipLayout={false} imgURL="https://storage.googleapis.com/gdg-fisk-assets/images/homepage-culture.png" /></div>
+          <div className="my-10">
+            <Focus />
           </div>
-          <div className="my-20">
+          <div className="my-10">
+            <TextSection btnLink={valueBtnInfo} paragraph={valuePara} heading={valueStatement} flipLayout={false} imgURL="https://storage.googleapis.com/gdg-fisk-assets/images/homepage-culture.png" />
+          </div>
+          <div className="my-10">
             <TestimonialHero testimonials={homePageData.testimonials} />
           </div>
-          <div className="my-20">
+          <div className="my-10">
             <ContactNewsletter/>
           </div>
           <Footer />
