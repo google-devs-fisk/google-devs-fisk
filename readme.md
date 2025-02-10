@@ -1,6 +1,8 @@
 # 🚀 Welcome, Rockstars! 
 We're crafting a sleek, mobile-responsive hub to showcase **[Google Devs at Fisk](https://google-devs-fisk.vercel.app/)**—our vision, projects, and coding ideas. With **[AI-driven automation](https://github.com/KarkiAdit/gdg-fisk-content-automation)**, our site will stay dynamic, evolving, and effortlessly cool. Together, we’re not just coding—we're architecting the future! 🚀🔥
 
+<img width="1463" alt="Screenshot 2025-02-09 at 10 12 20 PM" src="https://github.com/user-attachments/assets/4a69dec1-4e1e-4b82-8668-246c20be63ae" />
+
 
 ## 📌 What's Inside? 
 
